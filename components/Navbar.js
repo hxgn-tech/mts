@@ -35,20 +35,18 @@ function setCookie(name, value, days) {
 // Navigation translations for English and Spanish
 const navTranslations = {
     en: {
-        philosophy: "PHILOSOPHY",
-        services: "SERVICES",
-        portfolio: "PORTFOLIO",
-        bio: "PROFILE",
-        news: "NEWS",
+        venues: "VENUES",
+        management: "MANAGEMENT",
+        producciones: "PRODUCTIONS",
+        about: "ABOUT US",
         contact: "CONTACT",
         languageToggle: "| ESP |"
     },
     es: {
-        philosophy: "FILOSOFÍA",
-        services: "SERVICIOS",
-        portfolio: "PORTAFOLIO",
-        bio: "PERFIL",
-        news: "NOTICIAS",
+        venues: "VENUES",
+        management: "MANAGEMENT",
+        producciones: "PRODUCCIONES",
+        about: "QUIÉNES SOMOS",
         contact: "CONTACTO",
         languageToggle: "| ENG |"
     }
@@ -89,7 +87,7 @@ export default function Navbar() {
             sx={{
                 width: '100vw',
                 height: '6vh',
-                backgroundColor: 'blue.main',
+                backgroundColor: 'black.main',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -99,6 +97,7 @@ export default function Navbar() {
                 zIndex: 1000,
                 backdropFilter: 'blur(0px)',
                 transition: 'backdrop-filter 0.3s ease',
+                borderBottom: '1px solid rgba(152, 130, 84, 0.3)',
             }}
         >
             {/* Logo - Always visible */}
@@ -131,26 +130,96 @@ export default function Navbar() {
                         <>
                             {/* Desktop navigation items */}
                             <Box sx={{ display: 'flex', gap: '20px' }}>
-                            <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/profile'}>
-                                    {nav.bio}
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={() => {
+                                        const element = document.getElementById('venues-section');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
+                                    {nav.venues}
                                 </Button>
-                                <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/design'}>
-                                    {nav.philosophy}
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={() => {
+                                        const element = document.getElementById('management-section');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
+                                    {nav.management}
                                 </Button>
-                                <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/portfolio'}>
-                                    {nav.portfolio}
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={() => {
+                                        const element = document.getElementById('producciones-section');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
+                                    {nav.producciones}
                                 </Button>
-                                <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/services'}>
-                                    {nav.services}
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={() => {
+                                        const element = document.getElementById('about-section');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
+                                    {nav.about}
                                 </Button>
-                                <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/news'}>
-                                    {nav.news}
-                                </Button>
-                                <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/contact'}>
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={() => {
+                                        const element = document.getElementById('contact-section');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                >
                                     {nav.contact}
                                 </Button>
                                 {/* Language toggle button */}
-                                <Button sx={{ color: 'white' }} onClick={toggleLanguage}>
+                                <Button 
+                                    sx={{ 
+                                        color: 'white',
+                                        '&:hover': {
+                                            color: 'gold.main'
+                                        }
+                                    }} 
+                                    onClick={toggleLanguage}
+                                >
                                     {nav.languageToggle}
                                 </Button>
                             </Box>
@@ -169,11 +238,11 @@ export default function Navbar() {
                         width: '200px',
                         height: 'auto',
                         background: "transparent",
-                        backgroundColor: 'blue.main',
+                        backgroundColor: 'black.main',
                         color: 'white',
-                        borderLeft: '1px solid white',
-                        borderBottom: '1px solid white',
-                        boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)'
+                        borderLeft: '1px solid rgba(152, 130, 84, 0.3)',
+                        borderBottom: '1px solid rgba(152, 130, 84, 0.3)',
+                        boxShadow: '0 0 15px rgba(152, 130, 84, 0.2)'
                     }
                 }}
             >
@@ -188,27 +257,126 @@ export default function Navbar() {
                     textAlign: 'left',
                     justifyContent: 'left'
                 }}>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/profile'}>
-                        {nav.bio}
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={() => {
+                            const element = document.getElementById('venues-section');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setDrawerOpen(false);
+                        }}
+                    >
+                        {nav.venues}
                     </Button>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/design'}>
-                        {nav.philosophy}
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={() => {
+                            const element = document.getElementById('management-section');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setDrawerOpen(false);
+                        }}
+                    >
+                        {nav.management}
                     </Button>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/portfolio'}>
-                        {nav.portfolio}
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={() => {
+                            const element = document.getElementById('producciones-section');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setDrawerOpen(false);
+                        }}
+                    >
+                        {nav.producciones}
                     </Button>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/services'}>
-                        {nav.services}
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={() => {
+                            const element = document.getElementById('about-section');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setDrawerOpen(false);
+                        }}
+                    >
+                        {nav.about}
                     </Button>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/news'}>
-                        {nav.news}
-                    </Button>
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={() => window.location.href = '/contact'}>
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={() => {
+                            const element = document.getElementById('contact-section');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setDrawerOpen(false);
+                        }}
+                    >
                         {nav.contact}
                     </Button>
                     {/* Mobile language toggle */}
-                    <Button sx={{ color: 'white', fontSize: '1.25rem', textAlign: 'left', justifyContent: 'left', marginLeft: '1.25rem' }} onClick={toggleLanguage}>
-                    {language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}
+                    <Button 
+                        sx={{ 
+                            color: 'white', 
+                            fontSize: '1.25rem', 
+                            textAlign: 'left', 
+                            justifyContent: 'left', 
+                            marginLeft: '1.25rem',
+                            '&:hover': {
+                                color: 'gold.main'
+                            }
+                        }} 
+                        onClick={toggleLanguage}
+                    >
+                        {language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}
                     </Button>
                 </Box>
             </Drawer>
