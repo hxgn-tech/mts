@@ -104,7 +104,7 @@ export default function Navbar() {
             <Box sx={{ ml: '2vw' }}>
                 <Button sx={{ color: 'white' }} onClick={() => window.location.href = '/'}>
                     <img 
-                        src="/images/sonnevi_logo-w.svg" 
+                        src="/images/logo.png" 
                         alt="logo" 
                         style={{ 
                             height: '4vh', 

@@ -83,7 +83,7 @@ export default function App() {
                     }}
                 >
                     <Image
-                        src="/images/background.jpg"
+                        src="/images/banner.jpeg"
                         alt="Background"
                         width={0}
                         height={0}
@@ -128,7 +128,7 @@ export default function App() {
                         }}
                     >
                         <Image
-                            src="/images/sonnevi_logo-color.svg"
+                            src="/images/logo.png"
                             alt="Main Logo"
                             placeholder="empty"
                             width={0}
@@ -145,7 +145,7 @@ export default function App() {
                         <Typography
                             variant="h2"
                             sx={{
-                                color: 'white',
+                                color: 'white !important',
                                 fontFamily: 'Garamond',
                                 fontSize: { xl: '2rem', md: '1.5rem', xs: '1.2rem' },
                                 textAlign: 'center',
