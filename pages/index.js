@@ -67,7 +67,8 @@ export default function App() {
                 sx={{
                     width: '100%',
                     backgroundColor: 'black.main',
-                    minHeight: '100vh'
+                    minHeight: '100vh',
+                    overflowX: 'hidden'
                 }}
             >
                 {/* Banner Section */}

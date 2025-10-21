@@ -27,8 +27,10 @@ const theme = createTheme({
         },
         h2: {
             color: '#ffffff',
-            fontSize: '7rem', // 112px
-            fontWeight: 'bold',
+            fontSize: '2.5rem', // 112px
+            lineHeight: '1',
+            fontWeight: '100',
+            textTransform: 'uppercase',
             '@media (max-width:1200px)': { fontSize: '5rem' }, // 80px
             '@media (max-width:600px)': { fontSize: '3rem' }, // 48px
         },

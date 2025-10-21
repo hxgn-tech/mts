@@ -132,8 +132,8 @@ export default function VenuesSection({ venues, language }) {
                                 <Box
                                     sx={{
                                         display: 'flex',
-                                        flexDirection: { xs: 'column', md: 'row' },
-                                        alignItems: { xs: 'stretch', md: 'flex-start' },
+                                        flexDirection: { xs: 'column', lg: 'row' },
+                                        alignItems: { xs: 'stretch', lg: 'flex-start' },
                                         gap: '2rem'
                                     }}
                                 >
@@ -144,7 +144,7 @@ export default function VenuesSection({ venues, language }) {
                                             flexDirection: 'column',
                                             gap: '0rem',
                                             flex: 1,
-                                            order: { xs: 2, md: 1 }
+                                            order: { xs: 2, lg: 1 }
                                         }}
                                     >
                                         {/* Venue Name */}
@@ -162,12 +162,12 @@ export default function VenuesSection({ venues, language }) {
                                     {venues[currentIndex].images && venues[currentIndex].images.length > 0 && (
                                         <Box
                                             sx={{
-                                                width: { xs: '100%', md: '1200px' },
-                                                maxWidth: { xs: '100%', md: '900px' },
-                                                height: { xs: '250px', md: '400px' },
+                                                width: { xs: '100%', lg: '1200px' },
+                                                maxWidth: { xs: '100%', lg: '900px' },
+                                                height: { xs: '250px', lg: '400px' },
                                                 position: 'relative',
                                                 flexShrink: 0,
-                                                order: { xs: 1, md: 2 }
+                                                order: { xs: 1, lg: 2 }
                                             }}
                                         >
                                             <Image
