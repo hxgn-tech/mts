@@ -1,7 +1,7 @@
 "use client"
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Box, Button, IconButton, Drawer } from "@mui/material";
+import { Box, Button, IconButton, Drawer, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useMediaQuery } from '@mui/material';
 
@@ -85,7 +85,7 @@ export default function Navbar() {
     return (
         <Box
             sx={{
-                width: '100vw',
+                width: '100%',
                 height: '6vh',
                 backgroundColor: 'black.main',
                 display: 'flex',
@@ -94,10 +94,10 @@ export default function Navbar() {
                 color: 'white',
                 position: 'fixed',
                 top: 0,
+                left: 0,
+                right: 0,
                 zIndex: 1000,
-                backdropFilter: 'blur(0px)',
-                transition: 'backdrop-filter 0.3s ease',
-                borderBottom: '1px solid rgba(152, 130, 84, 0.3)',
+                border: '1px solid white',
             }}
         >
             {/* Logo - Always visible */}
@@ -132,95 +132,126 @@ export default function Navbar() {
                             <Box sx={{ display: 'flex', gap: '20px' }}>
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={() => {
                                         const element = document.getElementById('venues-section');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            const elementPosition = element.offsetTop;
+                                            const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                     }}
                                 >
-                                    {nav.venues}
+                                    <Typography variant="p">{nav.venues}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={() => {
                                         const element = document.getElementById('management-section');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            const elementPosition = element.offsetTop;
+                                            const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                     }}
                                 >
-                                    {nav.management}
+                                    <Typography variant="p">{nav.management}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={() => {
                                         const element = document.getElementById('producciones-section');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            const elementPosition = element.offsetTop;
+                                            const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                     }}
                                 >
-                                    {nav.producciones}
+                                    <Typography variant="p">{nav.producciones}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={() => {
                                         const element = document.getElementById('about-section');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            const elementPosition = element.offsetTop;
+                                            const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                     }}
                                 >
-                                    {nav.about}
+                                    <Typography variant="p">{nav.about}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={() => {
                                         const element = document.getElementById('contact-section');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            const elementPosition = element.offsetTop;
+                                            const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                     }}
                                 >
-                                    {nav.contact}
+                                    <Typography variant="p">{nav.contact}</Typography>
                                 </Button>
                                 {/* Language toggle button */}
                                 <Button 
                                     sx={{ 
-                                        color: 'white',
                                         '&:hover': {
-                                            color: 'gold.main'
+                                            textDecoration: 'underline',
+                                            textDecorationColor: 'white',
+                                            textDecorationThickness: '1px'
                                         }
                                     }} 
                                     onClick={toggleLanguage}
                                 >
-                                    {nav.languageToggle}
+                                    <Typography variant="p">{nav.languageToggle}</Typography>
                                 </Button>
                             </Box>
                         </>
@@ -240,9 +271,8 @@ export default function Navbar() {
                         background: "transparent",
                         backgroundColor: 'black.main',
                         color: 'white',
-                        borderLeft: '1px solid rgba(152, 130, 84, 0.3)',
-                        borderBottom: '1px solid rgba(152, 130, 84, 0.3)',
-                        boxShadow: '0 0 15px rgba(152, 130, 84, 0.2)'
+                        border: '1px solid white',
+                        marginTop: '6vh'
                     }
                 }}
             >
@@ -259,124 +289,119 @@ export default function Navbar() {
                 }}>
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('venues-section');
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                const elementPosition = element.offsetTop;
+                                const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }
                             setDrawerOpen(false);
                         }}
                     >
-                        {nav.venues}
+                        <Typography variant="p">{nav.venues}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('management-section');
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                const elementPosition = element.offsetTop;
+                                const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }
                             setDrawerOpen(false);
                         }}
                     >
-                        {nav.management}
+                        <Typography variant="p">{nav.management}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('producciones-section');
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                const elementPosition = element.offsetTop;
+                                const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }
                             setDrawerOpen(false);
                         }}
                     >
-                        {nav.producciones}
+                        <Typography variant="p">{nav.producciones}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('about-section');
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                const elementPosition = element.offsetTop;
+                                const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }
                             setDrawerOpen(false);
                         }}
                     >
-                        {nav.about}
+                        <Typography variant="p">{nav.about}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('contact-section');
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                const elementPosition = element.offsetTop;
+                                const offsetPosition = elementPosition - window.innerHeight * 0.06; // 6vh offset
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }
                             setDrawerOpen(false);
                         }}
                     >
-                        {nav.contact}
+                        <Typography variant="p">{nav.contact}</Typography>
                     </Button>
                     {/* Mobile language toggle */}
                     <Button 
                         sx={{ 
-                            color: 'white', 
-                            fontSize: '1.25rem', 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem',
-                            '&:hover': {
-                                color: 'gold.main'
-                            }
+                            marginLeft: '1.25rem'
                         }} 
                         onClick={toggleLanguage}
                     >
-                        {language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}
+                        <Typography variant="p">{language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}</Typography>
                     </Button>
                 </Box>
             </Drawer>

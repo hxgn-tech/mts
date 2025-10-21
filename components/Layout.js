@@ -24,18 +24,32 @@ export default function Layout({ children }) {
             <Toaster />
             <Head>
                 <title>Sonnevi</title>
-                <style>{`body { margin: 0; padding: 0; background: ${theme.palette.background.default}; }`}</style>
+                <style>{`
+                    body { 
+                        margin: 0; 
+                        padding: 0; 
+                        background: ${theme.palette.background.default}; 
+                        overflow-x: hidden;
+                    }
+                    html {
+                        overflow-x: hidden;
+                    }
+                    * {
+                        box-sizing: border-box;
+                    }
+                `}</style>
             </Head>
             <ThemeProvider theme={theme}>
                 <Navbar />
                 <Box
                     sx={{
                         width: '100%',
-                        height: '100vh',
+                        minHeight: '100vh',
                         backgroundColor: 'blue.main',
                         mt: '6vh',
                         fontFamily: 'Mulish, Arial, sans-serif',
                         scrollBehavior: 'smooth',
+                        overflowX: 'hidden',
                     }}
                 >
                     {children ? children : null}
