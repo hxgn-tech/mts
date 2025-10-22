@@ -67,15 +67,15 @@ export default function VenuesSection({ venues, language }) {
             sx={{
                 width: '100%',
                 padding: { xl: '5rem', xs: '2rem' },
-                backgroundColor: 'black.main',
-                color: 'white.main'
+                backgroundColor: 'white.main',
+                color: 'black.main'
             }}
         >
             <Box
                 sx={{
                     maxWidth: '1400px',
                     margin: '0 auto',
-                    borderLeft: '1px solid white',
+                    borderLeft: '1px solid black',
                     paddingLeft: '2rem'
                 }}
             >
@@ -206,9 +206,9 @@ export default function VenuesSection({ venues, language }) {
                     <IconButton
                         onClick={prevVenue}
                         sx={{
-                            color: 'white.main',
+                            color: 'black.main',
                             '&:hover': {
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
                             }
                         }}
                     >
@@ -231,12 +231,12 @@ export default function VenuesSection({ venues, language }) {
                                     width: '12px',
                                     height: '12px',
                                     borderRadius: '50%',
-                                    backgroundColor: index === currentIndex ? 'white' : 'transparent',
-                                    border: '1px solid white',
+                                    backgroundColor: index === currentIndex ? 'black' : 'transparent',
+                                    border: '1px solid black',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease',
                                     '&:hover': {
-                                        backgroundColor: index === currentIndex ? 'white' : 'rgba(255, 255, 255, 0.3)',
+                                        backgroundColor: index === currentIndex ? 'black' : 'rgba(0, 0, 0, 0.3)',
                                     }
                                 }}
                             />
@@ -246,33 +246,14 @@ export default function VenuesSection({ venues, language }) {
                     <IconButton
                         onClick={nextVenue}
                         sx={{
-                            color: 'white.main',
+                            color: 'black.main',
                             '&:hover': {
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
                             }
                         }}
                     >
                         <ChevronRight fontSize="large" />
                     </IconButton>
-                </Box>
-
-                {/* Counter */}
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '1rem'
-                    }}
-                >
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: 'white.main',
-                            fontFamily: 'Garamond'
-                        }}
-                    >
-                        {currentIndex + 1} / {venues.length}
-                    </Typography>
                 </Box>
             </Box>
         </Box>

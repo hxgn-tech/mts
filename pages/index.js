@@ -96,7 +96,8 @@ export default function App() {
                             position: 'absolute',
                             top: 0,
                             left: 0,
-                            zIndex: 1
+                            zIndex: 1,
+                            filter: "grayscale(100%)"
                         }}
                     />
                     

@@ -2,15 +2,15 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-        mode: 'dark',
-        primary: { main: '#ffffff' },
+        mode: 'light',
+        primary: { main: '#101014' },
         background: {
-            default: '#101014',
-            paper: '#101014'
+            default: '#ffffff',
+            paper: '#ffffff'
         },
         text: {
-            primary: '#ffffff',
-            secondary: '#ffffff'
+            primary: '#101014',
+            secondary: '#101014'
         },
     },
     typography: {
@@ -19,14 +19,14 @@ const theme = createTheme({
             'sans-serif'
         ].join(','),
         h1: {
-            color: '#ffffff',
+            color: '#101014',
             fontSize: '8rem', // 128px
             fontWeight: 'bold',
             '@media (max-width:1200px)': { fontSize: '6rem' }, // 96px
             '@media (max-width:600px)': { fontSize: '4rem' }, // 64px
         },
         h2: {
-            color: '#ffffff',
+            color: '#101014',
             fontSize: '2.5rem', // 112px
             lineHeight: '1',
             fontWeight: '100',
@@ -35,13 +35,13 @@ const theme = createTheme({
             '@media (max-width:600px)': { fontSize: '3rem' }, // 48px
         },
         body1: {
-            color: '#ffffff',
+            color: '#101014',
             fontSize: '1.25rem', // 20px
             '@media (max-width:900px)': { fontSize: '1.125rem' }, // 18px
             '@media (max-width:600px)': { fontSize: '1rem' }, // 16px
         },
         p: {
-            color: '#ffffff',
+            color: '#101014',
             fontSize: '1.25rem', // 20px
             fontWeight: 100,
             textAlign: 'justify',
@@ -64,8 +64,8 @@ const theme = createTheme({
             styleOverrides: {
                 body: {
                     fontFamily: 'Roboto Flex, sans-serif',
-                    backgroundColor: '#101014',
-                    color: '#ffffff'
+                    backgroundColor: '#ffffff',
+                    color: '#101014'
                 },
             },
         },

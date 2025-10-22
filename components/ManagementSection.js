@@ -53,15 +53,15 @@ export default function ManagementSection({ managementItems, language }) {
             sx={{
                 width: '100%',
                 padding: { xl: '5rem', xs: '2rem' },
-                backgroundColor: 'black.main',
-                color: 'white.main'
+                backgroundColor: 'white.main',
+                color: 'black.main'
             }}
         >
             <Box
                 sx={{
                     maxWidth: '1400px',
                     margin: '0 auto',
-                    borderRight: '1px solid white',
+                    borderRight: '1px solid black',
                     paddingLeft: { xs: '1rem', lg: '2rem' },
                     paddingRight: { xs: '1rem', lg: '2rem' }
                 }}
@@ -155,7 +155,7 @@ export default function ManagementSection({ managementItems, language }) {
                                     <Typography
                                         variant="p"
                                         sx={{
-                                            color: 'white.main',
+                                            color: 'black.main',
                                             fontSize: '0.9rem',
                                             lineHeight: 1.6,
                                             width: '100%'
@@ -173,7 +173,7 @@ export default function ManagementSection({ managementItems, language }) {
                                     sx={{
                                         width: { xs: '0', lg: '1px' },
                                         height: { xs: '0', lg: 'auto' },
-                                        backgroundColor: 'white',
+                                        backgroundColor: 'black',
                                         margin: { xs: '0', lg: '1rem 0' },
                                         display: { xs: 'none', lg: 'block' }
                                     }}
@@ -186,7 +186,7 @@ export default function ManagementSection({ managementItems, language }) {
                                         flexDirection: 'column',
                                         justifyContent: 'space-between',
                                         padding: { xs: '0', lg: '2rem' },
-                                        borderTop: { xs: '1px solid white', lg: 'none' },
+                                        borderTop: { xs: '1px solid black', lg: 'none' },
                                         marginTop: { xs: '1rem', lg: '0' }
                                     }}
                                 >
@@ -299,14 +299,14 @@ export default function ManagementSection({ managementItems, language }) {
                     <Box
                         sx={{
                             width: { xs: '100%', lg: '35%' },
-                            borderLeft: { xs: 'none', lg: '1px solid white' },
-                            borderBottom: { xs: '1px solid white', lg: 'none' },
+                            borderLeft: { xs: 'none', lg: '1px solid black' },
+                            borderBottom: { xs: '1px solid black', lg: 'none' },
                             paddingLeft: { xs: '0', lg: '2rem' },
                             paddingBottom: { xs: '2rem', lg: '0' },
                             display: 'grid',
                             gridTemplateColumns: { xs: '1fr 1fr', lg: '1fr 1fr' },
                             gap: '1rem',
-                            backgroundColor: '#101014',
+                            backgroundColor: 'transparent',
                             zIndex: 2,
                             position: 'relative',
                             order: { xs: 1, lg: 2 }
@@ -327,9 +327,10 @@ export default function ManagementSection({ managementItems, language }) {
                                         display: 'flex',
                                         flexDirection: 'column',
                                         cursor: 'pointer',
+                                        backgroundColor: 'transparent',
                                         border: selectedArtist === index 
-                                            ? '2px solid white' 
-                                            : '1px solid rgba(255, 255, 255, 0.1)',
+                                            ? '1px solid black' 
+                                            : 'none',
                                         transition: 'all 0.3s ease',
                                         '&:hover': {
                                             transform: 'translateY(-2px)'
@@ -359,14 +360,14 @@ export default function ManagementSection({ managementItems, language }) {
                                     {/* Artist Name */}
                                     <Box
                                             sx={{
-                                            padding: '1rem',
+                                            padding: '0.25rem',
                                             textAlign: 'center'
                                         }}
                                     >
                                         <Typography
                                             variant="p"
                                             sx={{
-                                                color: 'white.main',
+                                                color: 'black.main',
                                                 fontSize: '0.9rem',
                                                 fontWeight: "100",
                                                 textTransform: 'uppercase',

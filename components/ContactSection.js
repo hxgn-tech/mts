@@ -46,28 +46,33 @@ export default function ContactSection({ language }) {
 
     const contactInfo = [
         {
-            icon: "📧",
             title: t.email,
             content: "info@mts.com",
             link: "mailto:info@mts.com"
         },
         {
-            icon: "📱",
             title: t.phone,
             content: "+34 123 456 789",
             link: "tel:+34123456789"
+        }
+    ];
+
+    const socialMediaLinks = [
+        {
+            name: "Facebook",
+            link: "https://facebook.com/mts_official"
         },
         {
-            icon: "📍",
-            title: t.address,
-            content: "Madrid, Spain",
-            link: "https://maps.google.com"
-        },
-        {
-            icon: "🌐",
-            title: t.social,
-            content: "@mts_official",
+            name: "Instagram", 
             link: "https://instagram.com/mts_official"
+        },
+        {
+            name: "Twitter",
+            link: "https://twitter.com/mts_official"
+        },
+        {
+            name: "Spotify",
+            link: "https://open.spotify.com/user/mts_official"
         }
     ];
 
@@ -77,14 +82,17 @@ export default function ContactSection({ language }) {
             sx={{
                 width: '100%',
                 padding: { xl: '5rem', xs: '2rem' },
-                backgroundColor: 'black.main',
-                color: 'white.main'
+                backgroundColor: 'white.main',
+                color: 'black.main'
             }}
         >
             <Box
                 sx={{
-                    maxWidth: '1200px',
-                    margin: '0 auto'
+                    maxWidth: '1400px',
+                    margin: '0 auto',
+                    borderRight: '1px solid black',
+                    paddingLeft: { xs: '1rem', lg: '2rem' },
+                    paddingRight: { xs: '1rem', lg: '2rem' }
                 }}
             >
                 <motion.div
@@ -94,35 +102,39 @@ export default function ContactSection({ language }) {
                     variants={titleAnimation}
                 >
                     <Typography
-                        variant="h2"
+                        variant="h1"
                         sx={{
-                            textAlign: 'center',
-                            marginBottom: '1rem',
-                            fontSize: { xl: '3rem', md: '2.5rem', xs: '2rem' },
-                            color: 'gold.main',
-                            fontFamily: 'Garamond'
+                            textAlign: 'right',
+                            color: 'primary.main',
+                            fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
+                            lineHeight: { xs: '1', sm: '1.1', md: '1.2' }
                         }}
                     >
                         {t.title}
                     </Typography>
-                    
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            textAlign: 'center',
-                            marginBottom: '3rem',
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            fontFamily: 'Garamond'
-                        }}
-                    >
-                        {t.subtitle}
-                    </Typography>
                 </motion.div>
 
-                <Grid container spacing={4}>
-                    {contactInfo.map((item, index) => (
-                        <Grid item xs={12} sm={6} md={3} key={index}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', lg: 'row' },
+                        marginTop: '2rem',
+                        gap: { xs: '2rem', lg: '0' }
+                    }}
+                >
+                    {/* Contact Info Column */}
+                    <Box
+                        sx={{
+                            width: { xs: '100%', lg: '33%' },
+                            display: 'flex',
+                            flexDirection: 'column',
+                            padding: { xs: '0', lg: '2rem' },
+                            order: { xs: 1, lg: 1 }
+                        }}
+                    >
+                        {contactInfo.map((item, index) => (
                             <motion.div
+                                key={index}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
@@ -131,36 +143,19 @@ export default function ContactSection({ language }) {
                             >
                                 <Box
                                     sx={{
-                                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                        backdropFilter: 'blur(10px)',
-                                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                                        borderRadius: '15px',
-                                        padding: '2rem',
-                                        textAlign: 'center',
-                                        height: '100%',
-                                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                        '&:hover': {
-                                            transform: 'translateY(-10px)',
-                                            boxShadow: '0 20px 40px rgba(152, 130, 84, 0.3)',
-                                        }
+                                        marginBottom: '2rem',
+                                        borderBottom: { xs: '1px solid black', lg: 'none' },
+                                        paddingBottom: { xs: '1rem', lg: '0' }
                                     }}
                                 >
                                     <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontSize: '3rem',
-                                            marginBottom: '1rem'
-                                        }}
-                                    >
-                                        {item.icon}
-                                    </Typography>
-                                    
-                                    <Typography
                                         variant="h6"
                                         sx={{
-                                            marginBottom: '1rem',
-                                            color: 'gold.main',
-                                            fontFamily: 'Garamond'
+                                            marginBottom: '0.5rem',
+                                            color: 'primary.main',
+                                            fontFamily: 'Garamond',
+                                            textTransform: 'uppercase',
+                                            fontSize: '0.9rem'
                                         }}
                                     >
                                         {item.title}
@@ -171,11 +166,15 @@ export default function ContactSection({ language }) {
                                         target={item.link.startsWith('http') ? '_blank' : undefined}
                                         variant="text"
                                         sx={{
-                                            color: 'white.main',
+                                            color: 'black.main',
                                             textDecoration: 'none',
                                             fontSize: '1rem',
+                                            padding: '0',
+                                            textTransform: 'none',
+                                            justifyContent: 'flex-start',
                                             '&:hover': {
-                                                color: 'gold.main'
+                                                color: 'primary.main',
+                                                backgroundColor: 'transparent'
                                             }
                                         }}
                                     >
@@ -183,36 +182,156 @@ export default function ContactSection({ language }) {
                                     </Button>
                                 </Box>
                             </motion.div>
-                        </Grid>
-                    ))}
-                </Grid>
+                        ))}
+                    </Box>
 
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={cardAnimation}
-                    style={{ textAlign: 'center', marginTop: '3rem' }}
-                >
-                    <Button
-                        href="/contact"
-                        variant="outlined"
+                    {/* White Border Divider */}
+                    <Box
                         sx={{
-                            borderColor: 'gold.main',
-                            color: 'gold.main',
-                            padding: '1rem 3rem',
-                            fontSize: '1.2rem',
-                            fontFamily: 'Garamond',
-                            textTransform: 'none',
-                            '&:hover': {
-                                borderColor: 'gold.main',
-                                backgroundColor: 'rgba(152, 130, 84, 0.1)'
-                            }
+                            width: { xs: '0', lg: '1px' },
+                            height: { xs: '0', lg: 'auto' },
+                            backgroundColor: 'black',
+                            margin: { xs: '0', lg: '1rem 0' },
+                            display: { xs: 'none', lg: 'block' }
+                        }}
+                    />
+
+                    {/* Social Media Column */}
+                    <Box
+                        sx={{
+                            width: { xs: '100%', lg: '33%' },
+                            borderLeft: { xs: 'none', lg: '1px solid black' },
+                            borderBottom: { xs: '1px solid black', lg: 'none' },
+                            paddingLeft: { xs: '0', lg: '2rem' },
+                            paddingBottom: { xs: '2rem', lg: '0' },
+                            order: { xs: 2, lg: 2 }
                         }}
                     >
-                        {t.contactUs}
-                    </Button>
-                </motion.div>
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={cardAnimation}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    marginBottom: '1.5rem',
+                                    color: 'primary.main',
+                                    fontFamily: 'Garamond',
+                                    textTransform: 'uppercase',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                {t.social}
+                            </Typography>
+                            
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '0.5rem'
+                                }}
+                            >
+                                {socialMediaLinks.map((social, index) => (
+                                    <Typography
+                                        key={index}
+                                        component="a"
+                                        href={social.link}
+                                        target="_blank"
+                                        variant="p"
+                                        sx={{
+                                            color: 'black.main',
+                                            textDecoration: 'none',
+                                            cursor: 'pointer',
+                                            textTransform: 'uppercase',
+                                            fontSize: '0.9rem',
+                                            '&:hover': {
+                                                color: 'primary.main',
+                                                textDecoration: 'underline'
+                                            }
+                                        }}
+                                    >
+                                        {social.name}
+                                    </Typography>
+                                ))}
+                            </Box>
+                        </motion.div>
+                    </Box>
+
+                    {/* White Border Divider */}
+                    <Box
+                        sx={{
+                            width: { xs: '0', lg: '1px' },
+                            height: { xs: '0', lg: 'auto' },
+                            backgroundColor: 'black',
+                            margin: { xs: '0', lg: '1rem 0' },
+                            display: { xs: 'none', lg: 'block' }
+                        }}
+                    />
+
+                    {/* Address and Map Column */}
+                    <Box
+                        sx={{
+                            width: { xs: '100%', lg: '34%' },
+                            borderLeft: { xs: 'none', lg: '1px solid black' },
+                            borderBottom: { xs: '1px solid black', lg: 'none' },
+                            paddingLeft: { xs: '0', lg: '2rem' },
+                            paddingBottom: { xs: '2rem', lg: '0' },
+                            order: { xs: 3, lg: 3 }
+                        }}
+                    >
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={cardAnimation}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    marginBottom: '1rem',
+                                    color: 'primary.main',
+                                    fontFamily: 'Garamond',
+                                    textTransform: 'uppercase',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                {t.address}
+                            </Typography>
+                            
+                            <Typography
+                                variant="p"
+                                sx={{
+                                    color: 'black.main',
+                                    fontSize: '0.9rem',
+                                    marginBottom: '1.5rem',
+                                    lineHeight: 1.6
+                                }}
+                            >
+                                Madrid, Spain
+                            </Typography>
+                            
+                            <Box
+                                sx={{
+                                    width: '100%',
+                                    height: '200px',
+                                    border: '1px solid black'
+                                }}
+                            >
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.4968410733727!2d-3.7037902!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c226!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </Box>
+                        </motion.div>
+                    </Box>
+                </Box>
             </Box>
         </Box>
     );

@@ -87,7 +87,7 @@ export default function Navbar() {
             sx={{
                 width: '100%',
                 height: '6vh',
-                backgroundColor: 'black.main',
+                backgroundColor: 'transparent',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -97,7 +97,6 @@ export default function Navbar() {
                 left: 0,
                 right: 0,
                 zIndex: 1000,
-                border: '1px solid white',
             }}
         >
             {/* Logo - Always visible */}
@@ -108,7 +107,7 @@ export default function Navbar() {
                         alt="logo" 
                         style={{ 
                             height: '4vh', 
-                            // filter: 'brightness(15)',
+                            filter: 'invert(1)',
                             minWidth: '60px'
                         }} 
                     />
@@ -123,6 +122,7 @@ export default function Navbar() {
                             size="large"
                             color="inherit"
                             onClick={() => setDrawerOpen(true)}
+                            sx={{ filter: 'invert(1)' }}
                         >
                             <MenuIcon sx={{ fill: 'white' }} />
                         </IconButton>
@@ -132,6 +132,8 @@ export default function Navbar() {
                             <Box sx={{ display: 'flex', gap: '20px' }}>
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -150,10 +152,12 @@ export default function Navbar() {
                                         }
                                     }}
                                 >
-                                    <Typography variant="p">{nav.venues}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.venues}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -172,10 +176,12 @@ export default function Navbar() {
                                         }
                                     }}
                                 >
-                                    <Typography variant="p">{nav.management}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.management}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -194,10 +200,12 @@ export default function Navbar() {
                                         }
                                     }}
                                 >
-                                    <Typography variant="p">{nav.producciones}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.producciones}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -216,10 +224,12 @@ export default function Navbar() {
                                         }
                                     }}
                                 >
-                                    <Typography variant="p">{nav.about}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.about}</Typography>
                                 </Button>
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -238,11 +248,13 @@ export default function Navbar() {
                                         }
                                     }}
                                 >
-                                    <Typography variant="p">{nav.contact}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.contact}</Typography>
                                 </Button>
                                 {/* Language toggle button */}
                                 <Button 
                                     sx={{ 
+                                        color: 'white',
+                                        filter: 'invert(1)',
                                         '&:hover': {
                                             textDecoration: 'underline',
                                             textDecorationColor: 'white',
@@ -251,7 +263,7 @@ export default function Navbar() {
                                     }} 
                                     onClick={toggleLanguage}
                                 >
-                                    <Typography variant="p">{nav.languageToggle}</Typography>
+                                    <Typography variant="p" sx={{ color: 'white' }}>{nav.languageToggle}</Typography>
                                 </Button>
                             </Box>
                         </>
@@ -268,10 +280,9 @@ export default function Navbar() {
                     '& .MuiDrawer-paper': {
                         width: '200px',
                         height: 'auto',
-                        background: "transparent",
-                        backgroundColor: 'black.main',
+                        background: "white",
+                        backgroundColor: 'white',
                         color: 'white',
-                        border: '1px solid white',
                         marginTop: '6vh'
                     }
                 }}
@@ -291,7 +302,9 @@ export default function Navbar() {
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('venues-section');
@@ -306,13 +319,15 @@ export default function Navbar() {
                             setDrawerOpen(false);
                         }}
                     >
-                        <Typography variant="p">{nav.venues}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{nav.venues}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('management-section');
@@ -327,13 +342,15 @@ export default function Navbar() {
                             setDrawerOpen(false);
                         }}
                     >
-                        <Typography variant="p">{nav.management}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{nav.management}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('producciones-section');
@@ -348,13 +365,15 @@ export default function Navbar() {
                             setDrawerOpen(false);
                         }}
                     >
-                        <Typography variant="p">{nav.producciones}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{nav.producciones}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('about-section');
@@ -369,13 +388,15 @@ export default function Navbar() {
                             setDrawerOpen(false);
                         }}
                     >
-                        <Typography variant="p">{nav.about}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{nav.about}</Typography>
                     </Button>
                     <Button 
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={() => {
                             const element = document.getElementById('contact-section');
@@ -390,18 +411,20 @@ export default function Navbar() {
                             setDrawerOpen(false);
                         }}
                     >
-                        <Typography variant="p">{nav.contact}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{nav.contact}</Typography>
                     </Button>
                     {/* Mobile language toggle */}
                     <Button 
                         sx={{ 
                             textAlign: 'left', 
                             justifyContent: 'left', 
-                            marginLeft: '1.25rem'
+                            marginLeft: '1.25rem',
+                            color: 'white',
+                            filter: 'invert(1)'
                         }} 
                         onClick={toggleLanguage}
                     >
-                        <Typography variant="p">{language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}</Typography>
+                        <Typography variant="p" sx={{ color: 'white' }}>{language === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}</Typography>
                     </Button>
                 </Box>
             </Drawer>
