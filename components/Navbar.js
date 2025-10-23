@@ -97,6 +97,7 @@ export default function Navbar() {
                 left: 0,
                 right: 0,
                 zIndex: 1000,
+                background: 'rgba(230, 230, 230, 1)',
             }}
         >
             {/* Logo - Always visible */}

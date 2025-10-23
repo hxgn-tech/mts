@@ -54,7 +54,7 @@ export default function Layout({ children }) {
                 >
                     {children ? children : null}
                 </Box>
-                {/* Floating WhatsApp button */}
+                {/* Floating WhatsApp button
                 <Fab
                     color="primary"
                     aria-label="whatsapp"
@@ -69,7 +69,7 @@ export default function Layout({ children }) {
                     }}
                 >
                     <WhatsAppIcon />
-                </Fab>
+                </Fab> */}
             </ThemeProvider>
         </>
     );

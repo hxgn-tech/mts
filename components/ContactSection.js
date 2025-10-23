@@ -47,33 +47,33 @@ export default function ContactSection({ language }) {
     const contactInfo = [
         {
             title: t.email,
-            content: "info@mts.com",
-            link: "mailto:info@mts.com"
+            content: "dcachu@mtsagencyar.com",
+            link: "mailto:dcachu@mtsagencyar.com"
         },
-        {
-            title: t.phone,
-            content: "+34 123 456 789",
-            link: "tel:+34123456789"
-        }
+        // {
+        //     title: t.phone,
+        //     content: "+34 123 456 789",
+        //     link: "tel:+34123456789"
+        // }
     ];
 
     const socialMediaLinks = [
-        {
-            name: "Facebook",
-            link: "https://facebook.com/mts_official"
-        },
-        {
+         {
             name: "Instagram", 
-            link: "https://instagram.com/mts_official"
+            link: "https://www.instagram.com/mtsagencyar/"
         },
         {
-            name: "Twitter",
-            link: "https://twitter.com/mts_official"
+            name: "Linkedin",
+            link: "https://www.linkedin.com/company/mts-agency"
         },
-        {
-            name: "Spotify",
-            link: "https://open.spotify.com/user/mts_official"
-        }
+        // {
+        //     name: "Twitter",
+        //     link: "https://twitter.com/mts_official"
+        // },
+        // {
+        //     name: "Spotify",
+        //     link: "https://open.spotify.com/user/mts_official"
+        // }
     ];
 
     return (
@@ -309,7 +309,7 @@ export default function ContactSection({ language }) {
                                     lineHeight: 1.6
                                 }}
                             >
-                                Madrid, Spain
+                                Av. Álvarez Thomas 1131, C1426 CABA, Argentina
                             </Typography>
                             
                             <Box
@@ -320,7 +320,7 @@ export default function ContactSection({ language }) {
                                 }}
                             >
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.4968410733727!2d-3.7037902!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c226!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.024607634242!2d-58.4578275!3d-34.57824389999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5de0d2ac919%3A0xda161beff807276d!2sMTS%20AGENCY!5e0!3m2!1sen!2sar!4v1761231120527!5m2!1sen!2sar"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}

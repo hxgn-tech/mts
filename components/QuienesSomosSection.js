@@ -223,7 +223,8 @@ export default function QuienesSomosSection({ language }) {
                                                 marginBottom: '0.5rem'
                                             }}
                                         >
-                                            {language === 'es' ? 'Juan Pérez' : 'John Smith'}
+                                            {/* {language === 'es' ? 'Juan Pérez' : 'John Smith'} */}
+                                            Chino
                                         </Typography>
                                         <Typography
                                             variant="p"
@@ -297,7 +298,8 @@ export default function QuienesSomosSection({ language }) {
                                                 marginBottom: '0.5rem'
                                             }}
                                         >
-                                            {language === 'es' ? 'María García' : 'Maria Garcia'}
+                                            {/* {language === 'es' ? 'María García' : 'Maria Garcia'} */}
+                                            Diego
                                         </Typography>
                                         <Typography
                                             variant="p"
@@ -309,7 +311,7 @@ export default function QuienesSomosSection({ language }) {
                                                 textTransform: 'uppercase'
                                             }}
                                         >
-                                            {language === 'es' ? 'Productora Ejecutiva' : 'Executive Producer'}
+                                            {language === 'es' ? 'Productor Ejecutivo' : 'Executive Producer'}
                                         </Typography>
                                         <Typography
                                             variant="p"
