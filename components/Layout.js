@@ -24,7 +24,8 @@ export default function Layout({ children }) {
             <Toaster />
             <Head>
                 <title>MTS Agency</title>
-                <style>{`
+                <link rel="icon" href="/images/favicon.ico" />
+                <style>{`   
                     body { 
                         margin: 0; 
                         padding: 0; 
