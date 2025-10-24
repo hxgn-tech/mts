@@ -23,8 +23,9 @@ export default function Layout({ children }) {
         <>
             <Toaster />
             <Head>
-                <title>Sonnevi</title>
-                <style>{`
+                <title>MTS Agency</title>
+                <link rel="icon" href="/images/favicon.ico" />
+                <style>{`   
                     body { 
                         margin: 0; 
                         padding: 0; 
@@ -54,7 +55,7 @@ export default function Layout({ children }) {
                 >
                     {children ? children : null}
                 </Box>
-                {/* Floating WhatsApp button */}
+                {/* Floating WhatsApp button
                 <Fab
                     color="primary"
                     aria-label="whatsapp"
@@ -69,7 +70,7 @@ export default function Layout({ children }) {
                     }}
                 >
                     <WhatsAppIcon />
-                </Fab>
+                </Fab> */}
             </ThemeProvider>
         </>
     );

@@ -6,21 +6,21 @@ import theme from '../styles/theme';
 import ModalWindow from '../components/Modal';
 import {
     getVenues,
-    addVenue,
+    AgregarVenue,
     deleteVenue,
     updateVenue,
     updateVenueOrder
 } from '../controllers/venues';
 import {
     getManagementItems,
-    addManagementItem,
+    AgregarManagementItem,
     deleteManagementItem,
     updateManagementItem,
     updateManagementOrder
 } from '../controllers/management';
 import {
     getProducciones,
-    addProduccion,
+    AgregarProduccion,
     deleteProduccion,
     updateProduccion,
     updateProduccionOrder
@@ -164,7 +164,7 @@ export default function Admin() {
             : (venues.length > 0 ? Math.max(...venues.map(item => item.order)) + 1 : 0);
 
         if (!editVenueModalOpen) {
-            const newId = await addVenue({
+            const newId = await AgregarVenue({
                 nombre: vNombre,
                 name: vName,
                 descripcion: vDescripcion,
@@ -245,7 +245,7 @@ export default function Admin() {
             : (managementItems.length > 0 ? Math.max(...managementItems.map(item => item.order)) + 1 : 0);
 
         if (!editManagementModalOpen) {
-            const newId = await addManagementItem({
+            const newId = await AgregarManagementItem({
                 nombre: mNombre,
                 descripcion: mDescripcion,
                 description: mDescription,
@@ -338,7 +338,7 @@ export default function Admin() {
             : (producciones.length > 0 ? Math.max(...producciones.map(item => item.order)) + 1 : 0);
 
         if (!editProduccionModalOpen) {
-            const newId = await addProduccion({
+            const newId = await AgregarProduccion({
                 nombre: pNombre,
                 name: pName,
                 ubicacion: pUbicacion,
@@ -409,14 +409,14 @@ export default function Admin() {
                         fontWeight: 700,
                     }}
                 >
-                    <Typography variant="h5" sx={{ mb: 2, color: theme.palette.text.primary }}>
-                        Enter the password to access this section
+                    <Typography variant="h5" sx={{ mt: 10, mb: 4, color: theme.palette.text.primary }}>
+                        Ingrese la contraseña para acceder al panel de administración
                     </Typography>
                     <TextField
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
+                        placeholder="Contraseña"
                         sx={{ mb: 2, width: '300px' }}
                         variant="standard"
                     />
@@ -426,7 +426,7 @@ export default function Admin() {
                         </Typography>
                     )}
                     <Button variant="contained" onClick={handlePasswordSubmit} sx={{ width: '300px' }}>
-                        Enter
+                        Ingresar
                     </Button>
                 </Box>
             </Layout>
@@ -448,7 +448,7 @@ export default function Admin() {
                 </Box>
                 <TabPanel value={tabValue} index={0}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: '2vh', width: '100%' }}>
-                        <Button variant="contained" onClick={() => setVenueModalOpen(true)}>+ Add Venue</Button>
+                        <Button variant="contained" onClick={() => setVenueModalOpen(true)}>+ Agregar Venue</Button>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ width: '90%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'black.main', p: '20px 0vh', borderRadius: '10px' }}>
@@ -498,7 +498,7 @@ export default function Admin() {
                 </TabPanel>
                 <TabPanel value={tabValue} index={1}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: '2vh', width: '100%' }}>
-                        <Button variant="contained" onClick={() => setManagementModalOpen(true)}>+ Add Management Item</Button>
+                        <Button variant="contained" onClick={() => setManagementModalOpen(true)}>+ Agregar Management Item</Button>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ width: '90%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'black.main', p: '20px 0vh', borderRadius: '10px' }}>
@@ -556,7 +556,7 @@ export default function Admin() {
                 </TabPanel>
                 <TabPanel value={tabValue} index={2}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: '2vh', width: '100%' }}>
-                        <Button variant="contained" onClick={() => setProduccionModalOpen(true)}>+ Add Producción</Button>
+                        <Button variant="contained" onClick={() => setProduccionModalOpen(true)}>+ Agregar Producción</Button>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ width: '90%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'black.main', p: '20px 0vh', borderRadius: '10px' }}>
@@ -612,7 +612,7 @@ export default function Admin() {
                 {/* Venue Modal */}
                 <ModalWindow open={venueModalOpen || editVenueModalOpen} onClose={() => { setVenueModalOpen(false); setEditVenueModalOpen(false); }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '80%', mx: 'auto', mt: '40px', color: theme.palette.text.primary }}>
-                        <Typography variant="h5">{editVenueModalOpen ? 'Edit Venue' : 'Add Venue'}</Typography>
+                        <Typography variant="h5">{editVenueModalOpen ? 'Edit Venue' : 'Agregar Venue'}</Typography>
                         <TextField sx={{ mt: '20px' }} placeholder="Nombre (Spanish)" onChange={(e) => setVNombre(e.target.value)} value={vNombre} variant="standard" />
                         <TextField sx={{ mt: '20px' }} placeholder="Name (English)" onChange={(e) => setVName(e.target.value)} value={vName} variant="standard" />
                         <TextField
@@ -647,7 +647,7 @@ export default function Admin() {
                         )}
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '20px' }}>
                             <Button onClick={handleSubmitVenue} variant="contained" sx={{ width: '40%' }}>
-                                {editVenueModalOpen ? 'Update Venue' : 'Add Venue'}
+                                {editVenueModalOpen ? 'Update Venue' : 'Agregar Venue'}
                             </Button>
                         </Box>
                     </Box>
@@ -656,7 +656,7 @@ export default function Admin() {
                 {/* Management Modal */}
                 <ModalWindow open={managementModalOpen || editManagementModalOpen} onClose={() => { setManagementModalOpen(false); setEditManagementModalOpen(false); }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '80%', mx: 'auto', mt: '40px', color: theme.palette.text.primary }}>
-                        <Typography variant="h5">{editManagementModalOpen ? 'Edit Management Item' : 'Add Management Item'}</Typography>
+                        <Typography variant="h5">{editManagementModalOpen ? 'Edit Management Item' : 'Agregar Management Item'}</Typography>
                         <TextField sx={{ mt: '20px' }} placeholder="Nombre" onChange={(e) => setMNombre(e.target.value)} value={mNombre} variant="standard" />
                         <TextField
                             sx={{ mt: '20px' }}
@@ -702,7 +702,7 @@ export default function Admin() {
                         )}
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '20px' }}>
                             <Button onClick={handleSubmitManagement} variant="contained" sx={{ width: '40%' }}>
-                                {editManagementModalOpen ? 'Update Management Item' : 'Add Management Item'}
+                                {editManagementModalOpen ? 'Update Management Item' : 'Agregar Management Item'}
                             </Button>
                         </Box>
                     </Box>
@@ -711,7 +711,7 @@ export default function Admin() {
                 {/* Producción Modal */}
                 <ModalWindow open={produccionModalOpen || editProduccionModalOpen} onClose={() => { setProduccionModalOpen(false); setEditProduccionModalOpen(false); }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '80%', mx: 'auto', mt: '40px', color: theme.palette.text.primary }}>
-                        <Typography variant="h5">{editProduccionModalOpen ? 'Edit Producción' : 'Add Producción'}</Typography>
+                        <Typography variant="h5">{editProduccionModalOpen ? 'Edit Producción' : 'Agregar Producción'}</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: '20px' }}>
                             <TextField placeholder="Nombre (Spanish)" onChange={(e) => setPNombre(e.target.value)} value={pNombre} sx={{ width: '45%' }} variant="standard" />
                             <TextField placeholder="Name (English)" onChange={(e) => setPName(e.target.value)} value={pName} sx={{ width: '45%' }} variant="standard" />
@@ -755,7 +755,7 @@ export default function Admin() {
                         )}
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '20px' }}>
                             <Button onClick={handleSubmitProduccion} variant="contained" sx={{ width: '40%' }}>
-                                {editProduccionModalOpen ? 'Update Producción' : 'Add Producción'}
+                                {editProduccionModalOpen ? 'Update Producción' : 'Agregar Producción'}
                             </Button>
                         </Box>
                     </Box>

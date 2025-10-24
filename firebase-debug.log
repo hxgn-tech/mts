@@ -1,0 +1,387 @@
+[debug] [2025-04-07T19:10:22.494Z] ----------------------------------------------------------------------
+[debug] [2025-04-07T19:10:22.495Z] Command:       /Users/martin/.nvm/versions/node/v18.20.6/bin/node /Users/martin/.nvm/versions/node/v18.20.6/bin/firebase deploy
+[debug] [2025-04-07T19:10:22.495Z] CLI Version:   13.35.1
+[debug] [2025-04-07T19:10:22.495Z] Platform:      darwin
+[debug] [2025-04-07T19:10:22.495Z] Node Version:  v18.20.6
+[debug] [2025-04-07T19:10:22.499Z] Time:          Mon Apr 07 2025 16:10:22 GMT-0300 (Argentina Standard Time)
+[debug] [2025-04-07T19:10:22.499Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-07T19:10:22.500Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-04-07T19:10:22.620Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-07T19:10:22.620Z] > authorizing via signed-in user (hxgn.tech@gmail.com)
+[debug] [2025-04-07T19:10:22.621Z] [iam] checking project sonnevi-54e9c for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-04-07T19:10:22.621Z] No OAuth tokens found
+[debug] [2025-04-07T19:10:22.621Z] No OAuth tokens found
+[debug] [2025-04-07T19:10:22.621Z] > refreshing access token with scopes: []
+[debug] [2025-04-07T19:10:22.622Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-04-07T19:10:22.622Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:10:22.915Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-04-07T19:10:22.915Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:10:22.922Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions [none]
+[debug] [2025-04-07T19:10:22.922Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions x-goog-quota-user=projects/sonnevi-54e9c
+[debug] [2025-04-07T19:10:22.922Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:10:23.000Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-04-07T19:10:23.001Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-04-07T19:10:23.837Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions 200
+[debug] [2025-04-07T19:10:23.837Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:10:23.838Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:23.838Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:23.838Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-04-07T19:10:23.838Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:10:24.741Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-04-07T19:10:24.741Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:10:24.742Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:24.742Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:24.743Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:10:25.123Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c 200
+[debug] [2025-04-07T19:10:25.123Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c {"projectId":"sonnevi-54e9c","projectNumber":"889778516937","displayName":"Sonnevi","name":"projects/sonnevi-54e9c","resources":{"hostingSite":"sonnevi-54e9c","realtimeDatabaseInstance":"sonnevi-54e9c-default-rtdb"},"state":"ACTIVE","etag":"1_5312a6c6-7098-4eea-9725-a35c40f382ac"}
+[debug] [2025-04-07T19:10:26.793Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:26.793Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:26.794Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites pageToken=&pageSize=10
+[debug] [2025-04-07T19:10:28.370Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:10:28.371Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:10:28.371Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:28.371Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:28.372Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 
+[debug] [2025-04-07T19:10:29.837Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:10:29.837Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:10:29.837Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:29.837Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:29.837Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config [none]
+[debug] [2025-04-07T19:10:30.989Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config 200
+[debug] [2025-04-07T19:10:30.989Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config {"projectId":"sonnevi-54e9c","appId":"1:889778516937:web:8189380ad31e1810d46e18","databaseURL":"https://sonnevi-54e9c-default-rtdb.firebaseio.com","storageBucket":"sonnevi-54e9c.firebasestorage.app","apiKey":"AIzaSyBz_AgGKOQg3NV1pgfCLXNES9UQnBrItK4","authDomain":"sonnevi-54e9c.firebaseapp.com","messagingSenderId":"889778516937"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-04-07T19:10:35.542Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:35.542Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:35.542Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:10:36.787Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:10:36.787Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.2.2
+
+[info] 
+
+[info]    Linting and checking validity of types ...
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/10) ...
+
+[info]    Generating static pages (2/10) 
+
+[info]    Generating static pages (4/10) 
+   Generating static pages (7/10) 
+ ✓ Generating static pages (10/10)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (pages)                                Size  First Load JS
+┌ ○ / (489 ms)                            5.44 kB         273 kB
+├ ○ /404                                    190 B        79.8 kB
+├ ○ /admin (490 ms)                       36.9 kB         260 kB
+├ ƒ /api/sendMail                             0 B        79.6 kB
+├ ○ /contact (492 ms)                     1.94 kB         170 kB
+├ ○ /design (489 ms)                      6.22 kB         292 kB
+├ ○ /news (490 ms)                        3.21 kB         211 kB
+├ ○ /portfolio (490 ms)                   4.22 kB         245 kB
+├ ○ /profile (489 ms)                     4.31 kB         272 kB
+└ ○ /services (489 ms)                    4.99 kB         273 kB
++ First Load JS shared by all             79.6 kB
+  ├ chunks/framework-3522b0d93c8e64f4.js  44.7 kB
+  ├ chunks/main-24188c1ad3edf7d3.js       33.7 kB
+  └ other shared chunks (total)           1.17 kB
+
+
+[info] ○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static route /api/sendMail
+[info] 
+[debug] [2025-04-07T19:10:49.783Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:49.783Z] Checked if tokens are valid: true, expires at: 1744056620915
+[debug] [2025-04-07T19:10:49.783Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:10:50.974Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:10:50.974Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-04-07T19:10:56.063Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/frameworks/index.js:371:42)
+    at async deploy (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/deploy/index.js:76:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-04-07T19:12:11.893Z] ----------------------------------------------------------------------
+[debug] [2025-04-07T19:12:11.894Z] Command:       /Users/martin/.nvm/versions/node/v18.20.6/bin/node /Users/martin/.nvm/versions/node/v18.20.6/bin/firebase deploy
+[debug] [2025-04-07T19:12:11.895Z] CLI Version:   13.35.1
+[debug] [2025-04-07T19:12:11.895Z] Platform:      darwin
+[debug] [2025-04-07T19:12:11.895Z] Node Version:  v18.20.6
+[debug] [2025-04-07T19:12:11.898Z] Time:          Mon Apr 07 2025 16:12:11 GMT-0300 (Argentina Standard Time)
+[debug] [2025-04-07T19:12:11.898Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-07T19:12:12.003Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-07T19:12:12.003Z] > authorizing via signed-in user (hxgn.tech@gmail.com)
+[debug] [2025-04-07T19:12:12.003Z] [iam] checking project sonnevi-54e9c for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-04-07T19:12:12.004Z] No OAuth tokens found
+[debug] [2025-04-07T19:12:12.004Z] No OAuth tokens found
+[debug] [2025-04-07T19:12:12.004Z] > refreshing access token with scopes: []
+[debug] [2025-04-07T19:12:12.005Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-04-07T19:12:12.005Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:12:12.280Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-04-07T19:12:12.280Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:12:12.287Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions [none]
+[debug] [2025-04-07T19:12:12.288Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions x-goog-quota-user=projects/sonnevi-54e9c
+[debug] [2025-04-07T19:12:12.288Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:12:12.529Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions 200
+[debug] [2025-04-07T19:12:12.530Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:12:12.530Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:12.530Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:12.530Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-04-07T19:12:12.530Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:12:13.491Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-04-07T19:12:13.491Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:12:13.492Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:13.492Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:13.492Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:12:13.841Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c 200
+[debug] [2025-04-07T19:12:13.841Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c {"projectId":"sonnevi-54e9c","projectNumber":"889778516937","displayName":"Sonnevi","name":"projects/sonnevi-54e9c","resources":{"hostingSite":"sonnevi-54e9c","realtimeDatabaseInstance":"sonnevi-54e9c-default-rtdb"},"state":"ACTIVE","etag":"1_5312a6c6-7098-4eea-9725-a35c40f382ac"}
+[debug] [2025-04-07T19:12:15.670Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:15.670Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:15.671Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites pageToken=&pageSize=10
+[debug] [2025-04-07T19:12:17.061Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:12:17.061Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:12:17.062Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:17.062Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:17.063Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 
+[debug] [2025-04-07T19:12:18.731Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:12:18.731Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:12:18.731Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:18.731Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:18.731Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config [none]
+[debug] [2025-04-07T19:12:19.688Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config 200
+[debug] [2025-04-07T19:12:19.688Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config {"projectId":"sonnevi-54e9c","appId":"1:889778516937:web:8189380ad31e1810d46e18","databaseURL":"https://sonnevi-54e9c-default-rtdb.firebaseio.com","storageBucket":"sonnevi-54e9c.firebasestorage.app","apiKey":"AIzaSyBz_AgGKOQg3NV1pgfCLXNES9UQnBrItK4","authDomain":"sonnevi-54e9c.firebaseapp.com","messagingSenderId":"889778516937"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-04-07T19:12:23.838Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:23.838Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:23.838Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:12:25.091Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:12:25.092Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.2.2
+
+[info] 
+
+[info]    Linting and checking validity of types ...
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/10) ...
+
+[info]    Generating static pages (2/10) 
+
+[info]    Generating static pages (4/10) 
+   Generating static pages (7/10) 
+ ✓ Generating static pages (10/10)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (pages)                                Size  First Load JS
+┌ ○ / (546 ms)                            5.44 kB         273 kB
+├ ○ /404                                    190 B        79.8 kB
+├ ○ /admin (546 ms)                       36.9 kB         260 kB
+├ ƒ /api/sendMail                             0 B        79.6 kB
+├ ○ /contact (546 ms)                     1.94 kB         170 kB
+├ ○ /design (546 ms)                      6.22 kB         292 kB
+├ ○ /news (547 ms)                        3.21 kB         211 kB
+├ ○ /portfolio (548 ms)                   4.22 kB         245 kB
+├ ○ /profile (546 ms)                     4.31 kB         272 kB
+└ ○ /services (546 ms)                    4.99 kB         273 kB
++ First Load JS shared by all             79.6 kB
+  ├ chunks/framework-3522b0d93c8e64f4.js  44.7 kB
+  ├ chunks/main-24188c1ad3edf7d3.js       33.7 kB
+  └ other shared chunks (total)           1.17 kB
+
+
+[info] ○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static route /api/sendMail
+[info] 
+[debug] [2025-04-07T19:12:37.710Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:37.710Z] Checked if tokens are valid: true, expires at: 1744056731280
+[debug] [2025-04-07T19:12:37.710Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:12:38.954Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:12:38.954Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-04-07T19:12:40.349Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/frameworks/index.js:371:42)
+    at async deploy (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/deploy/index.js:76:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-04-07T19:14:27.259Z] ----------------------------------------------------------------------
+[debug] [2025-04-07T19:14:27.260Z] Command:       /Users/martin/.nvm/versions/node/v18.20.6/bin/node /Users/martin/.nvm/versions/node/v18.20.6/bin/firebase deploy
+[debug] [2025-04-07T19:14:27.261Z] CLI Version:   13.35.1
+[debug] [2025-04-07T19:14:27.261Z] Platform:      darwin
+[debug] [2025-04-07T19:14:27.261Z] Node Version:  v18.20.6
+[debug] [2025-04-07T19:14:27.262Z] Time:          Mon Apr 07 2025 16:14:27 GMT-0300 (Argentina Standard Time)
+[debug] [2025-04-07T19:14:27.262Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-07T19:14:27.365Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-07T19:14:27.365Z] > authorizing via signed-in user (hxgn.tech@gmail.com)
+[debug] [2025-04-07T19:14:27.365Z] [iam] checking project sonnevi-54e9c for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-04-07T19:14:27.366Z] No OAuth tokens found
+[debug] [2025-04-07T19:14:27.366Z] No OAuth tokens found
+[debug] [2025-04-07T19:14:27.366Z] > refreshing access token with scopes: []
+[debug] [2025-04-07T19:14:27.367Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-04-07T19:14:27.367Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:14:27.635Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-04-07T19:14:27.635Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-04-07T19:14:27.643Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions [none]
+[debug] [2025-04-07T19:14:27.643Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions x-goog-quota-user=projects/sonnevi-54e9c
+[debug] [2025-04-07T19:14:27.643Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:14:28.506Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions 200
+[debug] [2025-04-07T19:14:28.506Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sonnevi-54e9c:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-07T19:14:28.506Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:28.506Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:28.506Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-04-07T19:14:28.506Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:14:29.372Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-04-07T19:14:29.372Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/sonnevi-54e9c/serviceAccounts/sonnevi-54e9c@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-04-07T19:14:29.372Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:29.372Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:29.372Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:14:29.731Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c 200
+[debug] [2025-04-07T19:14:29.731Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c {"projectId":"sonnevi-54e9c","projectNumber":"889778516937","displayName":"Sonnevi","name":"projects/sonnevi-54e9c","resources":{"hostingSite":"sonnevi-54e9c","realtimeDatabaseInstance":"sonnevi-54e9c-default-rtdb"},"state":"ACTIVE","etag":"1_5312a6c6-7098-4eea-9725-a35c40f382ac"}
+[debug] [2025-04-07T19:14:31.306Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:31.306Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:31.306Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites pageToken=&pageSize=10
+[debug] [2025-04-07T19:14:32.700Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:14:32.700Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:14:32.700Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:32.700Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:32.700Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 
+[debug] [2025-04-07T19:14:34.114Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites 200
+[debug] [2025-04-07T19:14:34.114Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites {"sites":[{"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-04-07T19:14:34.114Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:34.114Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:34.114Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config [none]
+[debug] [2025-04-07T19:14:35.022Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config 200
+[debug] [2025-04-07T19:14:35.022Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sonnevi-54e9c/webApps/-/config {"projectId":"sonnevi-54e9c","appId":"1:889778516937:web:8189380ad31e1810d46e18","databaseURL":"https://sonnevi-54e9c-default-rtdb.firebaseio.com","storageBucket":"sonnevi-54e9c.firebasestorage.app","apiKey":"AIzaSyBz_AgGKOQg3NV1pgfCLXNES9UQnBrItK4","authDomain":"sonnevi-54e9c.firebaseapp.com","messagingSenderId":"889778516937"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-04-07T19:14:38.197Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:38.197Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:38.198Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:14:39.685Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:14:39.685Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.2.4
+
+[info] 
+
+[info]    Linting and checking validity of types ...
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/10) ...
+
+[info]    Generating static pages (2/10) 
+
+[info]    Generating static pages (4/10) 
+   Generating static pages (7/10) 
+ ✓ Generating static pages (10/10)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (pages)                                Size  First Load JS
+┌ ○ / (501 ms)                            5.43 kB         270 kB
+├ ○ /404                                    190 B        79.8 kB
+├ ○ /admin (501 ms)                       36.9 kB         258 kB
+├ ƒ /api/sendMail                             0 B        79.6 kB
+├ ○ /contact (502 ms)                     1.94 kB         167 kB
+├ ○ /design (501 ms)                      6.21 kB         288 kB
+├ ○ /news (501 ms)                        3.21 kB         208 kB
+├ ○ /portfolio (501 ms)                   4.22 kB         242 kB
+├ ○ /profile (501 ms)                      4.3 kB         269 kB
+└ ○ /services (501 ms)                    4.99 kB         270 kB
++ First Load JS shared by all             79.6 kB
+  ├ chunks/framework-3522b0d93c8e64f4.js  44.7 kB
+  ├ chunks/main-45f1732b83a982d7.js       33.7 kB
+  └ other shared chunks (total)           1.17 kB
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static route /api/sendMail
+[info] 
+[debug] [2025-04-07T19:14:57.576Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:57.576Z] Checked if tokens are valid: true, expires at: 1744056866635
+[debug] [2025-04-07T19:14:57.576Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c [none]
+[debug] [2025-04-07T19:14:58.851Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c 200
+[debug] [2025-04-07T19:14:58.851Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sonnevi-54e9c/sites/sonnevi-54e9c {"name":"projects/sonnevi-54e9c/sites/sonnevi-54e9c","defaultUrl":"https://sonnevi-54e9c.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-04-07T19:15:08.279Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/frameworks/index.js:371:42)
+    at async deploy (/Users/martin/.nvm/versions/node/v18.20.6/lib/node_modules/firebase-tools/lib/deploy/index.js:76:9)
+[error] 
+[error] Error: An unexpected error has occurred.
