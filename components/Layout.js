@@ -23,7 +23,7 @@ export default function Layout({ children }) {
         <>
             <Toaster />
             <Head>
-                <title>Sonnevi</title>
+                <title>MTS Agency</title>
                 <style>{`
                     body { 
                         margin: 0; 

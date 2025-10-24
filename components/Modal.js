@@ -17,7 +17,7 @@ const style = {
     },
     maxHeight: '80vh',
     overflow: 'auto',
-    bgcolor: 'blue.main',
+    bgcolor: 'background.paper',
     border: '1px solid #000',
     boxShadow: 24,
     p: 4,
