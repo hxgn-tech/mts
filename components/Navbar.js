@@ -56,7 +56,7 @@ export default function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [loading, setLoading] = useState(true);  // Track loading state
-    const [language, setLanguage] = useState('en');  // Language state
+    const [language, setLanguage] = useState('es');  // Language state
 
     // Media query to determine if the screen is mobile
     const isMobileQuery = useMediaQuery('(max-width:800px)');
@@ -67,6 +67,10 @@ export default function Navbar() {
         const cookieLang = getCookie('lang');
         if (cookieLang && (cookieLang === 'es' || cookieLang === 'en')) {
             setLanguage(cookieLang);
+        } else {
+            // No valid cookie -> default to Spanish and persist it
+            setLanguage('es');
+            setCookie('lang', 'es', 365); // guarda por 1 año
         }
         setLoading(false);
     }, [isMobileQuery]);
@@ -432,10 +436,3 @@ export default function Navbar() {
         </Box>
     );
 }
-
-// Debug object to log errors
-const Debug = {
-    LogError: (msg) => {
-        console.error(msg);
-    }
-};
