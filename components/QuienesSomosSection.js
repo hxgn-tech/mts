@@ -149,7 +149,8 @@ export default function QuienesSomosSection({ language }) {
                                 </Typography>
                             </Box>
 
-                            {/* Team Members Section */}
+                            {/* Team Members Section (comentada) */}
+                            {/*
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -179,7 +180,7 @@ export default function QuienesSomosSection({ language }) {
                                         margin: '0 auto'
                                     }}
                                 >
-                                    {/* Team Member 1 */}
+                                    // Team Member 1
                                     <Box
                                         sx={{
                                             display: 'flex',
@@ -224,7 +225,6 @@ export default function QuienesSomosSection({ language }) {
                                                 marginBottom: '0.5rem'
                                             }}
                                         >
-                                            {/* {language === 'es' ? 'Juan Pérez' : 'John Smith'} */}
                                             Chino
                                         </Typography>
                                         <Typography
@@ -254,7 +254,7 @@ export default function QuienesSomosSection({ language }) {
                                         </Typography>
                                     </Box>
 
-                                    {/* Team Member 2 */}
+                                    // Team Member 2
                                     <Box
                                         sx={{
                                             display: 'flex',
@@ -299,7 +299,6 @@ export default function QuienesSomosSection({ language }) {
                                                 marginBottom: '0.5rem'
                                             }}
                                         >
-                                            {/* {language === 'es' ? 'María García' : 'Maria Garcia'} */}
                                             Diego
                                         </Typography>
                                         <Typography
@@ -329,7 +328,7 @@ export default function QuienesSomosSection({ language }) {
                                         </Typography>
                                     </Box>
 
-                                    {/* Team Member 3 */}
+                                    // Team Member 3
                                     <Box
                                         sx={{
                                             display: 'flex',
@@ -409,6 +408,7 @@ export default function QuienesSomosSection({ language }) {
                                     </Box>
                                 </Box>
                             </Box>
+                            */}
                         </Box>
                     </motion.div>
                 </Box>
