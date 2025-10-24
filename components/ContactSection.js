@@ -25,7 +25,12 @@ export default function ContactSection({ language }) {
         en: {
             title: "CONTACT",
             subtitle: "Get in touch with us",
-            email: "Email",
+            emailContact: "Informacion",
+            emailMgmt: "Management & Booking",
+            emailPrensa: "Press & Accreditations",
+            emailVorterix: "Teatro Vorterix",
+            emailRoxyLive: "The Roxy Live!",
+            emailRoxyBar: "The Roxy Bar & Grill",
             phone: "Phone",
             address: "Address",
             social: "Social Media",
@@ -34,7 +39,12 @@ export default function ContactSection({ language }) {
         es: {
             title: "CONTACTO",
             subtitle: "Ponte en contacto con nosotros",
-            email: "Correo",
+            emailContact: "Información",
+            emailMgmt: "Management y Booking",
+            emailPrensa: "Prensa y Acreditaciones",
+            emailVorterix: "Teatro Vorterix",
+            emailRoxyLive: "The Roxy Live!",
+            emailRoxyBar: "The Roxy Bar & Grill",
             phone: "Teléfono",
             address: "Dirección",
             social: "Redes Sociales",
@@ -46,9 +56,34 @@ export default function ContactSection({ language }) {
 
     const contactInfo = [
         {
-            title: t.email,
-            content: "dcachu@mtsagencyar.com",
-            link: "mailto:dcachu@mtsagencyar.com"
+            title: t.emailContact,
+            content: "info@mtsagencyar.com",
+            link: "mailto:info@mtsagencyar.com"
+        },
+        {
+            title: t.emailMgmt,
+            content: "management@mtsagencyar.com",
+            link: "mailto:management@mtsagencyar.com",
+        },
+        {
+            title: t.emailPrensa,
+            content: "acreditaciones@mtsagencyar.com",
+            link: "mailto:acreditaciones@mtsagencyar.com",
+        },
+        {
+            title: t.emailVorterix,
+            content: "teatrovorterix@mtsagencyar.com",
+            link: "mailto:teatrovorterix@mtsagencyar.com",
+        },
+        {
+            title: t.emailRoxyLive,
+            content: "roxylive@mtsagencyar.com",
+            link: "mailto:roxylive@mtsagencyar.com"
+        },
+        {
+            title: t.emailRoxyBar,
+            content: "roxybar@mtsagencyar.com",
+            link: "mailto:roxybar@mtsagencyar.com"
         },
         // {
         //     title: t.phone,
