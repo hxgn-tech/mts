@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, IconButton, Stack } from '@mui/material';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
@@ -29,8 +29,13 @@ const titleAnimation = {
 
 export default function VenuesSection({ venues, language }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [imageIndex, setImageIndex] = useState(0);
     const dragControls = useDragControls();
     const containerRef = useRef(null);
+
+    useEffect(() => {
+        setImageIndex(0); // reset image when venue changes
+    }, [currentIndex]);
 
     if (!venues || venues.length === 0) {
         return null;
@@ -59,6 +64,20 @@ export default function VenuesSection({ venues, language }) {
         } else if (info.offset.x < -threshold) {
             nextVenue();
         }
+    };
+
+    const images = venues[currentIndex].images || [];
+    const nextImage = (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        setImageIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+    };
+    const prevImage = (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        setImageIndex((i) => (i === 0 ? Math.max(images.length - 1, 0) : i - 1));
+    };
+    const goToImage = (idx, e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        setImageIndex(idx);
     };
 
     return (
@@ -158,8 +177,8 @@ export default function VenuesSection({ venues, language }) {
                                         </Typography>
                                     </Box>
 
-                                    {/* Right side - Image */}
-                                    {venues[currentIndex].images && venues[currentIndex].images.length > 0 && (
+                                    {/* Right side - Image Carousel */}
+                                    {images.length > 0 && (
                                         <Box
                                             sx={{
                                                 width: { xs: '100%', lg: '1200px' },
@@ -167,17 +186,88 @@ export default function VenuesSection({ venues, language }) {
                                                 height: { xs: '250px', lg: '400px' },
                                                 position: 'relative',
                                                 flexShrink: 0,
-                                                order: { xs: 1, lg: 2 }
+                                                order: { xs: 1, lg: 2 },
+                                                borderRadius: 1,
+                                                overflow: 'hidden',
+                                                backgroundColor: 'grey.100'
                                             }}
                                         >
-                                            <Image
-                                                src={venues[currentIndex].images[0]}
-                                                alt={venues[currentIndex].nombre}
-                                                fill
-                                                style={{
-                                                    objectFit: 'cover'
+                                            {/* Image */}
+                                            <Box sx={{ position: 'absolute', inset: 0 }}>
+                                                <Image
+                                                    src={images[imageIndex]}
+                                                    alt={venues[currentIndex].nombre || venues[currentIndex].name}
+                                                    fill
+                                                    style={{
+                                                        objectFit: 'cover'
+                                                    }}
+                                                />
+                                            </Box>
+
+                                            {/* Left Arrow */}
+                                            <IconButton
+                                                onClick={prevImage}
+                                                onPointerDown={(e) => e.stopPropagation()}
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: '50%',
+                                                    left: 8,
+                                                    transform: 'translateY(-50%)',
+                                                    zIndex: 10,
+                                                    backgroundColor: 'rgba(255,255,255,0.6)',
+                                                    '&:hover': { backgroundColor: 'rgba(255,255,255,0.85)' }
                                                 }}
-                                            />
+                                            >
+                                                <ChevronLeft />
+                                            </IconButton>
+
+                                            {/* Right Arrow */}
+                                            <IconButton
+                                                onClick={nextImage}
+                                                onPointerDown={(e) => e.stopPropagation()}
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: '50%',
+                                                    right: 8,
+                                                    transform: 'translateY(-50%)',
+                                                    zIndex: 10,
+                                                    backgroundColor: 'rgba(255,255,255,0.6)',
+                                                    '&:hover': { backgroundColor: 'rgba(255,255,255,0.85)' }
+                                                }}
+                                            >
+                                                <ChevronRight />
+                                            </IconButton>
+
+                                            {/* Image Dots */}
+                                            <Box
+                                                sx={{
+                                                    position: 'absolute',
+                                                    bottom: 8,
+                                                    left: 0,
+                                                    right: 0,
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    gap: 1,
+                                                    zIndex: 10
+                                                }}
+                                            >
+                                                {images.map((_, idx) => (
+                                                    <Box
+                                                        key={idx}
+                                                        onClick={(e) => goToImage(idx, e)}
+                                                        onPointerDown={(e) => e.stopPropagation()}
+                                                        sx={{
+                                                            width: 10,
+                                                            height: 10,
+                                                            borderRadius: '50%',
+                                                            backgroundColor: idx === imageIndex ? 'black' : 'rgba(255,255,255,0.7)',
+                                                            border: idx === imageIndex ? '1px solid white' : '1px solid rgba(0,0,0,0.2)',
+                                                            cursor: 'pointer',
+                                                            transition: 'all 0.2s ease'
+                                                        }}
+                                                    />
+                                                ))}
+                                            </Box>
                                         </Box>
                                     )}
                                 </Box>

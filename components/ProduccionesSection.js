@@ -5,19 +5,19 @@ import Image from 'next/image';
 
 const cardAnimation = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-        opacity: 1, 
-        y: 0, 
-        transition: { duration: 0.6, ease: 'easeOut' } 
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: 'easeOut' }
     }
 };
 
 const titleAnimation = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-        opacity: 1, 
-        y: 0, 
-        transition: { duration: 0.8, ease: 'easeOut' } 
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: 'easeOut' }
     }
 };
 
@@ -61,7 +61,7 @@ export default function ProduccionesSection({ producciones, language }) {
                         variant="h2"
                         sx={{
                             textAlign: 'center',
-                            marginBottom: '3rem',
+                            marginBottom: '4rem',
                             fontSize: { xl: '3rem', md: '2.5rem', xs: '2rem' },
                             color: 'gold.main',
                             fontFamily: 'Garamond'
@@ -71,7 +71,7 @@ export default function ProduccionesSection({ producciones, language }) {
                     </Typography>
                 </motion.div>
 
-                <Grid container spacing={4}>
+                <Grid container spacing={3}>
                     {producciones.map((produccion, index) => (
                         <Grid item xs={12} md={6} lg={4} key={produccion.id}>
                             <motion.div
@@ -86,7 +86,7 @@ export default function ProduccionesSection({ producciones, language }) {
                                         backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                         backdropFilter: 'blur(10px)',
                                         border: '1px solid rgba(255, 255, 255, 0.1)',
-                                        borderRadius: '15px',
+                                        borderRadius: '5px',
                                         overflow: 'hidden',
                                         height: '100%',
                                         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -99,7 +99,7 @@ export default function ProduccionesSection({ producciones, language }) {
                                     {produccion.images && produccion.images.length > 0 && (
                                         <CardMedia
                                             sx={{
-                                                height: '250px',
+                                                height: '200px',
                                                 position: 'relative'
                                             }}
                                         >
@@ -113,7 +113,7 @@ export default function ProduccionesSection({ producciones, language }) {
                                             />
                                         </CardMedia>
                                     )}
-                                    
+
                                     <CardContent sx={{ padding: '1.5rem' }}>
                                         <Typography
                                             variant="h5"
@@ -126,54 +126,44 @@ export default function ProduccionesSection({ producciones, language }) {
                                         >
                                             {language === 'es' ? produccion.nombre : produccion.name}
                                         </Typography>
-                                        
+
                                         <Typography
                                             variant="body1"
                                             sx={{
                                                 marginBottom: '1rem',
-                                                color: 'white.main',
+                                                color: 'black',
                                                 fontSize: '0.9rem',
-                                                lineHeight: 1.6
+                                                lineHeight: 1
                                             }}
                                         >
                                             {language === 'es' ? produccion.descripcion : produccion.description}
                                         </Typography>
-                                        
+
                                         <Box sx={{ marginBottom: '1rem' }}>
                                             <Typography
                                                 variant="body2"
                                                 sx={{
-                                                    color: 'rgba(255, 255, 255, 0.7)',
                                                     fontSize: '0.8rem',
-                                                    marginBottom: '0.5rem'
+                                                    marginBottom: '0.1rem',
+                                                    color: "black"
                                                 }}
                                             >
-                                                📍 {language === 'es' ? produccion.ubicacion : produccion.location}
+                                                📍 {language === 'es' ? produccion.ubicacion : produccion.location} - {formatDate(produccion.fecha)} {produccion.categoria && (
+                                                    <Chip
+                                                        label={produccion.categoria}
+                                                        sx={{
+                                                            ml: '8px',
+                                                            backgroundColor: 'rgba(152, 130, 84, 0.2)',
+                                                            color: 'gold.main',
+                                                            border: '1px solid rgba(152, 130, 84, 0.5)',
+                                                            fontSize: '0.7rem',
+                                                            height: '24px'
+                                                        }}
+                                                    />
+                                                )}
                                             </Typography>
-                                            
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    color: 'rgba(255, 255, 255, 0.7)',
-                                                    fontSize: '0.8rem',
-                                                    marginBottom: '0.5rem'
-                                                }}
-                                            >
-                                                📅 {formatDate(produccion.fecha)}
-                                            </Typography>
-                                            
-                                            {produccion.categoria && (
-                                                <Chip
-                                                    label={produccion.categoria}
-                                                    sx={{
-                                                        backgroundColor: 'rgba(152, 130, 84, 0.2)',
-                                                        color: 'gold.main',
-                                                        border: '1px solid rgba(152, 130, 84, 0.5)',
-                                                        fontSize: '0.7rem',
-                                                        height: '24px'
-                                                    }}
-                                                />
-                                            )}
+
+
                                         </Box>
                                     </CardContent>
                                 </Card>
