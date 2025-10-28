@@ -134,7 +134,7 @@ export default function ManagementSection({ managementItems, language }) {
                                     {managementItems[selectedArtist].imagen && (
                                         <Box
                                             sx={{
-                                                width: '250px',
+                                                width: '350px',
                                                 height: '250px',
                                                 position: 'relative',
                                                 marginBottom: '1.5rem'
@@ -145,7 +145,7 @@ export default function ManagementSection({ managementItems, language }) {
                                                 alt={managementItems[selectedArtist].nombre}
                                                 fill
                                                 style={{
-                                                    objectFit: 'cover'
+                                                    objectFit: 'cover',
                                                 }}
                                             />
                                         </Box>
@@ -341,7 +341,7 @@ export default function ManagementSection({ managementItems, language }) {
                                     {item.imagen && (
                                         <Box
                                             sx={{
-                                                width: '100%',
+                                                // width: '100%',
                                                 height: '120px',
                                                 position: 'relative'
                                             }}
