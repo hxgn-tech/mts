@@ -2,6 +2,9 @@ import Layout from '../components/Layout';
 import { getCurrentUser } from '../controllers/auth';
 import { useEffect, useState } from 'react';
 import { Box, Button, TextField, Typography, Table, TableBody, TableCell, TableHead, TableRow, Tabs, Tab, IconButton } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import theme from '../styles/theme';
 import ModalWindow from '../components/Modal';
 import {
@@ -18,16 +21,14 @@ import {
     updateManagementItem,
     updateManagementOrder
 } from '../controllers/management';
-import {
+import * as produccionesCtrl from '../controllers/producciones';
+const {
     getProducciones,
-    AgregarProduccion,
+    addProduccion,
     deleteProduccion,
     updateProduccion,
-    updateProduccionOrder
-} from '../controllers/producciones';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+    updateProduccionOrder,
+} = produccionesCtrl;
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -338,7 +339,7 @@ export default function Admin() {
             : (producciones.length > 0 ? Math.max(...producciones.map(item => item.order)) + 1 : 0);
 
         if (!editProduccionModalOpen) {
-            const newId = await AgregarProduccion({
+            const newId = await addProduccion({
                 nombre: pNombre,
                 name: pName,
                 ubicacion: pUbicacion,
