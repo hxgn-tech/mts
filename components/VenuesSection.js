@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, IconButton, Stack } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, IconButton, Stack, CircularProgress } from '@mui/material';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import Image from 'next/image';
@@ -30,8 +30,14 @@ const titleAnimation = {
 export default function VenuesSection({ venues, language }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [imageIndex, setImageIndex] = useState(0);
+    const [loadingImage, setLoadingImage] = useState(true);
     const dragControls = useDragControls();
     const containerRef = useRef(null);
+
+    // cuando cambia la imagen/venue mostramos el loader hasta que onLoadingComplete lo quite
+    useEffect(() => {
+        setLoadingImage(true);
+    }, [currentIndex, imageIndex]);
 
     useEffect(() => {
         setImageIndex(0); // reset image when venue changes
@@ -201,8 +207,27 @@ export default function VenuesSection({ venues, language }) {
                                                     style={{
                                                         objectFit: 'cover'
                                                     }}
+                                                    onLoadingComplete={() => setLoadingImage(false)}
+                                                    onError={() => setLoadingImage(false)}
                                                 />
                                             </Box>
+
+                                            {/* Loading overlay while image loads */}
+                                            {loadingImage && (
+                                                <Box
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        inset: 0,
+                                                        zIndex: 30,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        backgroundColor: 'rgba(255,255,255,0.75)'
+                                                    }}
+                                                >
+                                                    <CircularProgress />
+                                                </Box>
+                                            )}
 
                                             {/* Left Arrow */}
                                             <IconButton
