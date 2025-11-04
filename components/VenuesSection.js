@@ -86,6 +86,16 @@ export default function VenuesSection({ venues, language }) {
         setImageIndex(idx);
     };
 
+    const imageContainerRef = useRef(null);
+    const handleImageDragEnd = (event, info) => {
+        const threshold = 50;
+        if (info.offset.x > threshold) {
+            prevImage();
+        } else if (info.offset.x < -threshold) {
+            nextImage();
+        }
+    };
+
     return (
         <Box
             id="venues-section"
@@ -258,25 +268,38 @@ export default function VenuesSection({ venues, language }) {
                                     {/* Right side - Image Carousel */}
                                     {images.length > 0 && (
                                         <Box
+                                            ref={imageContainerRef}
                                             sx={{
                                                 position: 'relative',
                                                 flexShrink: 0,
                                                 order: { xs: 1, lg: 2 },
-                                                paddingX: { xs: '48px', lg: '56px' },
-                                                overflow: 'visible'
+                                                paddingX: { xs: 0, lg: '56px' },
+                                                overflow: 'visible',
+                                                marginBottom: '2rem',
+                                                width: { xs: '100%', lg: 'auto' },
+                                                zIndex: 20
                                             }}
                                         >
                                             {/* Image Container */}
-                                            <Box
-                                                sx={{
-                                                    width: { xs: '100%', lg: '1200px' },
-                                                    maxWidth: { xs: '100%', lg: '900px' },
-                                                    height: { xs: '250px', lg: '400px' },
-                                                    position: 'relative',
-                                                    overflow: 'hidden',
-                                                    backgroundColor: 'grey.100'
-                                                }}
+                                            <motion.div
+                                                drag="x"
+                                                dragConstraints={imageContainerRef}
+                                                dragElastic={0.1}
+                                                onDragEnd={handleImageDragEnd}
+                                                onPointerDown={(e) => e.stopPropagation()}
+                                                style={{ cursor: 'grab' }}
+                                                whileDrag={{ cursor: 'grabbing' }}
                                             >
+                                                <Box
+                                                    sx={{
+                                                        width: { xs: '100%', lg: '1200px' },
+                                                        maxWidth: { xs: '100%', lg: '900px' },
+                                                        height: { xs: '250px', lg: '400px' },
+                                                        position: 'relative',
+                                                        overflow: 'hidden',
+                                                        backgroundColor: 'grey.100'
+                                                    }}
+                                                >
                                                 {/* Image */}
                                                 <Box sx={{ position: 'absolute', inset: 0 }}>
                                                     <Image
@@ -307,7 +330,8 @@ export default function VenuesSection({ venues, language }) {
                                                         <CircularProgress />
                                                     </Box>
                                                 )}
-                                            </Box>
+                                                </Box>
+                                            </motion.div>
 
                                             {/* Left Arrow - Outside image container */}
                                             <IconButton
@@ -318,8 +342,9 @@ export default function VenuesSection({ venues, language }) {
                                                     top: '50%',
                                                     left: 0,
                                                     transform: 'translateY(-50%)',
-                                                    zIndex: 10,
+                                                    zIndex: 30,
                                                     color: 'black.main',
+                                                    display: { xs: 'none', lg: 'flex' },
                                                     '&:hover': {
                                                         backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                                     }
@@ -337,8 +362,9 @@ export default function VenuesSection({ venues, language }) {
                                                     top: '50%',
                                                     right: 0,
                                                     transform: 'translateY(-50%)',
-                                                    zIndex: 10,
+                                                    zIndex: 30,
                                                     color: 'black.main',
+                                                    display: { xs: 'none', lg: 'flex' },
                                                     '&:hover': {
                                                         backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                                     }
@@ -357,7 +383,7 @@ export default function VenuesSection({ venues, language }) {
                                                     display: 'flex',
                                                     justifyContent: 'center',
                                                     gap: 1,
-                                                    zIndex: 10
+                                                    zIndex: 30
                                                 }}
                                             >
                                                 {images.map((_, idx) => (

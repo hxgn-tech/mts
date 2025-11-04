@@ -330,14 +330,24 @@ export default function QuienesSomosSection({ language }) {
 
                     {/* Bloque 5: Legado de Artistas (Con Mayor Peso Visual) */}
                     <Box>
-                        <Grid container spacing={{ xs: 2, md: 4 }} sx={{ alignItems: 'flex-start' }}>
-                            <Grid item xs={12} md={4}>
+                        <Box
+                            sx={{
+                                display: { xs: 'block', md: 'flex' },
+                                gap: { xs: 0, md: '4rem' },
+                                alignItems: 'flex-start'
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    flex: { md: '0 0 33.333%' },
+                                    marginBottom: { xs: '1rem', md: 0 }
+                                }}
+                            >
                                 <Typography
                                     variant="h1"
                                     sx={{ 
                                         color: 'primary.main', 
                                         fontWeight: 'bold', 
-                                        marginBottom: { xs: '0.5rem', md: 0 },
                                         fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
                                         lineHeight: { xs: '1', sm: '1.1', md: '1.2' },
                                         textAlign: { xs: 'center', md: 'left' }
@@ -345,8 +355,13 @@ export default function QuienesSomosSection({ language }) {
                                 >
                                     {t.artistsTitle}
                                 </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={8}>
+                            </Box>
+                            <Box
+                                sx={{
+                                    flex: { md: '1 1 66.666%' },
+                                    minWidth: 0
+                                }}
+                            >
                                 <motion.div
                                     initial="hidden"
                                     whileInView="visible"
@@ -402,8 +417,8 @@ export default function QuienesSomosSection({ language }) {
                                         </CardContent>
                                     </Card>
                                 </motion.div>
-                            </Grid>
-                        </Grid>
+                            </Box>
+                        </Box>
                         <Typography
                             variant="p"
                             sx={{
