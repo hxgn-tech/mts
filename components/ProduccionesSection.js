@@ -41,14 +41,17 @@ export default function ProduccionesSection({ producciones, language }) {
             sx={{
                 width: '100%',
                 padding: { xl: '5rem', xs: '2rem' },
-                backgroundColor: 'black.main',
-                color: 'white.main'
+                backgroundColor: 'white.main',
+                color: 'black.main'
             }}
         >
             <Box
                 sx={{
-                    maxWidth: '1200px',
-                    margin: '0 auto'
+                    maxWidth: '1400px',
+                    margin: '0 auto',
+                    borderRight: '1px solid black',
+                    paddingLeft: { xs: '1rem', lg: '2rem' },
+                    paddingRight: { xs: '1rem', lg: '2rem' }
                 }}
             >
                 <motion.div
@@ -58,13 +61,12 @@ export default function ProduccionesSection({ producciones, language }) {
                     variants={titleAnimation}
                 >
                     <Typography
-                        variant="h2"
+                        variant="h1"
                         sx={{
-                            textAlign: 'center',
-                            marginBottom: '4rem',
-                            fontSize: { xl: '3rem', md: '2.5rem', xs: '2rem' },
-                            color: 'gold.main',
-                            fontFamily: 'Garamond'
+                            textAlign: 'right',
+                            color: 'primary.main',
+                            fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
+                            lineHeight: { xs: '1', sm: '1.1', md: '1.2' }
                         }}
                     >
                         PRODUCCIONES
@@ -83,16 +85,14 @@ export default function ProduccionesSection({ producciones, language }) {
                             >
                                 <Card
                                     sx={{
-                                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                        backdropFilter: 'blur(10px)',
-                                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                                        borderRadius: '5px',
+                                        backgroundColor: 'transparent',
+                                        border: '1px solid black',
+                                        borderRadius: 0,
                                         overflow: 'hidden',
                                         height: '100%',
                                         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                         '&:hover': {
-                                            transform: 'translateY(-10px)',
-                                            boxShadow: '0 20px 40px rgba(152, 130, 84, 0.3)',
+                                            transform: 'translateY(-2px)'
                                         }
                                     }}
                                 >
@@ -116,24 +116,21 @@ export default function ProduccionesSection({ producciones, language }) {
 
                                     <CardContent sx={{ padding: '1.5rem' }}>
                                         <Typography
-                                            variant="h5"
+                                            variant="h2"
                                             sx={{
-                                                marginBottom: '1rem',
-                                                color: 'gold.main',
-                                                fontFamily: 'Garamond',
-                                                fontSize: { xl: '1.5rem', xs: '1.25rem' }
+                                                color: 'primary.main'
                                             }}
                                         >
                                             {language === 'es' ? produccion.nombre : produccion.name}
                                         </Typography>
 
                                         <Typography
-                                            variant="body1"
+                                            variant="p"
                                             sx={{
-                                                marginBottom: '1rem',
-                                                color: 'black',
+                                                color: 'black.main',
                                                 fontSize: '0.9rem',
-                                                lineHeight: 1
+                                                lineHeight: 1.6,
+                                                width: '100%'
                                             }}
                                         >
                                             {language === 'es' ? produccion.descripcion : produccion.description}
@@ -141,11 +138,11 @@ export default function ProduccionesSection({ producciones, language }) {
 
                                         <Box sx={{ marginBottom: '1rem' }}>
                                             <Typography
-                                                variant="body2"
+                                                variant="p"
                                                 sx={{
                                                     fontSize: '0.8rem',
                                                     marginBottom: '0.1rem',
-                                                    color: "black"
+                                                    color: 'black.main'
                                                 }}
                                             >
                                                 📍 {language === 'es' ? produccion.ubicacion : produccion.location} - {formatDate(produccion.fecha)} {produccion.categoria && (
@@ -153,9 +150,10 @@ export default function ProduccionesSection({ producciones, language }) {
                                                         label={produccion.categoria}
                                                         sx={{
                                                             ml: '8px',
-                                                            backgroundColor: 'rgba(152, 130, 84, 0.2)',
-                                                            color: 'gold.main',
-                                                            border: '1px solid rgba(152, 130, 84, 0.5)',
+                                                            backgroundColor: 'transparent',
+                                                            color: 'primary.main',
+                                                            border: 'none',
+                                                            borderRadius: 0,
                                                             fontSize: '0.7rem',
                                                             height: '24px'
                                                         }}

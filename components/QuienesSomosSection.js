@@ -1,20 +1,15 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Card, CardContent, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const cardAnimation = {
-    hidden: { opacity: 0, x: 100 },
+    hidden: { opacity: 0, y: 50 }, 
     visible: { 
         opacity: 1, 
-        x: 0, 
+        y: 0, 
         transition: { duration: 0.6, ease: 'easeOut' } 
     },
-    exit: {
-        opacity: 0,
-        x: -100,
-        transition: { duration: 0.3, ease: 'easeIn' }
-    }
 };
 
 const titleAnimation = {
@@ -26,49 +21,128 @@ const titleAnimation = {
     }
 };
 
-export default function QuienesSomosSection({ language }) {
-    const translations = {
-        en: {
-            title: "ABOUT US",
-            description: "With nearly 30 years of experience in the entertainment industry, MTS Agency has established itself as one of Argentina's most prominent production and management agencies. Founded in 1998, it drives artists, content, and productions with national and international impact, combining experience, creativity, and innovation in every project.",
-            secondDescription: "Since its inception, MTS has played a leading role in the creation, management, and development of some of the country's most iconic venues: The Roxy (all its locations), Teatro Colegiales (now Teatro Vorterix), Mandarine Park, Estadio Hípico Argentino, Madero Boardwalk, Teatro Flores, Riders Buenos Aires, Superclub, and La Reina. In 2012, the agency actively participated in the launch of Vorterix, alongside renowned Mario Pergolini, collaborating in the creation of the first streaming platform in South America with its own venue. Since then, MTS Agency has been responsible for the direction and general production of Teatro Vorterix in Buenos Aires and Mar del Plata, a pioneering space for comprehensive shows, streaming broadcasts, and the generation of digital and interactive content.",
-            learnMore: "LEARN MORE",
-            productionTitle: "Production and Festivals",
-            productionPoints: [
-                "Over 600 shows per year in own venues and associated venues.",
-                "Strategic partnerships with the region's main promoters: DF Entertainment / Live Nation, Pop Art Music, Dale Play and Move Concerts.",
-                "Direction and collaboration in notable festivals: Monsters of Rock Argentina (two editions), Gesell Rock, Maximus Buenos Aires (first edition), VTX Reggae Fest, VTX Metal, Alerta Rock!, among others."
-            ],
-            managementTitle: "Management and Booking",
-            managementText: "Exclusive management of artists: Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (former musicians of Charly García celebrating his work).",
-            bookingText: "International booking: Ratones Paranoicos – Juanse - Mentes Expertas (Spain) for Argentina only.",
-            artistsTitle: "Artists MTS has worked with",
-            artistsText: "Airbag, Los Fabulosos Cadillacs, Slash, Ozzy Osbourne, Megadeth, No Te Va Gustar, Ratones Paranoicos, among many others.",
-            participationTitle: "Industry Participation",
-            participationText: "Active member of ACMMA and co-founder of IDEAR. MTS Agency permanently collaborates on initiatives aimed at professionalizing and strengthening the entertainment industry in Argentina and Latin America, contributing its experience, infrastructure and strategic vision."
-        },
-        es: {
-            title: "QUIÉNES SOMOS",
-            description: "Con casi 30 años de trayectoria en la industria del entretenimiento, MTS Agency se consolida como una de las productoras y agencias de management más relevantes de Argentina. Fundada en 1998, impulsa artistas, contenidos y producciones de impacto nacional e internacional, combinando experiencia, creatividad e innovación en cada proyecto.",
-            secondDescription: "Desde sus inicios, MTS ha sido protagonista en la creación, gestión y desarrollo de algunas de las salas más emblemáticas del país: The Roxy (todas sus sedes), Teatro Colegiales (hoy Teatro Vorterix), Mandarine Park, Estadio Hípico Argentino, Madero Boardwalk, Teatro Flores, Riders Buenos Aires, Superclub y La Reina. En 2012, la agencia participó activamente en el lanzamiento de Vorterix, junto al reconocido Mario Pergolini, colaborando en la creación de la primera plataforma de streaming en Sudamérica con sala propia. Desde entonces, MTS Agency está a cargo de la dirección y producción general del Teatro Vorterix en Bs.As. y Mar del Plata, espacio pionero en espectáculos integrales, transmisiones por streaming y generación de contenidos digitales e interactivos.",
-            learnMore: "CONOCE MÁS",
-            productionTitle: "Producción y Festivales",
-            productionPoints: [
-                "Más de 600 shows anuales en salas propias y venues asociados.",
-                "Alianzas estratégicas con las principales productoras de la región: DF Entertainment / Live Nation, Pop Art Music, Dale Play y Move Concerts.",
-                "Dirección y colaboración en festivales destacados: Monsters of Rock Argentina (dos ediciones), Gesell Rock, Maximus Buenos Aires (primera edición), VTX Reggae Fest, VTX Metal, Alerta Rock!, entre otros."
-            ],
-            managementTitle: "Management y Booking",
-            managementText: "Management exclusivo de artistas: Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (ex músicos de Charly García celebrando su obra).",
-            bookingText: "Booking internacional: Ratones Paranoicos – Juanse - Mentes Expertas (España) solo para Argentina.",
-            artistsTitle: "Artistas con los que MTS ha trabajado",
-            artistsText: "Airbag, Los Fabulosos Cadillacs, Slash, Ozzy Osbourne, Megadeth, No Te Va Gustar, Ratones Paranoicos, entre muchos otros.",
-            participationTitle: "Participación en la Industria",
-            participationText: "Miembro activo de ACMMA y cofundador de IDEAR. MTS Agency colabora de forma permanente en iniciativas destinadas a profesionalizar y fortalecer la industria del entretenimiento en Argentina y Latinoamérica, aportando su experiencia, infraestructura y visión estratégica."
-        }
-    };
+const finalTranslations = {
+    es: {
+        title: "QUIÉNES SOMOS",
+        description1: "Con casi 30 años de trayectoria en la industria del entretenimiento, MTS Agency se consolida como una de las productoras y agencias de management más relevantes de Argentina. Fundada en 1998, impulsa artistas, contenidos y producciones de impacto nacional e internacional, combinando experiencia, creatividad e innovación en cada proyecto.",
+        description2: "Desde sus inicios, MTS ha sido protagonista en la creación, gestión y desarrollo de algunas de las salas más emblemáticas del país: The Roxy (todas sus sedes), Teatro Colegiales (hoy Teatro Vorterix), Mandarine Park, Estadio Hípico Argentino, Madero Boardwalk, Teatro Flores, Riders Buenos Aires, Superclub y La Reina. En 2012, la agencia participó activamente en el lanzamiento de Vorterix, junto al reconocido Mario Pergolini, colaborando en la creación de la primera plataforma de streaming en Sudamérica con sala propia. Desde entonces, MTS Agency está a cargo de la dirección y producción general del Teatro Vorterix en Bs.As. y Mar del Plata, espacio pionero en espectáculos integrales, transmisiones por streaming y generación de contenidos digitales e interactivos.",
+        productionTitle: "Qué Ofrecemos",
+        productionPoints: [
+            {
+                label: "Producción y Festivales",
+                detail: "Más de **600 shows anuales** en salas propias y venues asociados. Dirección y colaboración en festivales destacados: Monsters of Rock Argentina (dos ediciones), Gesell Rock, Maximus Buenos Aires (primera edición), VTX Reggae Fest, VTX Metal, Alerta Rock!, entre otros."
+            },
+            {
+                label: "Management Exclusivo",
+                detail: "Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (ex músicos de Charly García celebrando su obra)."
+            },
+            {
+                label: "Booking Internacional",
+                detail: "Ratones Paranoicos – Juanse - Mentes Expertas (España) solo para Argentina."
+            }
+        ],
+        alliancesTitle: "Participación en la Industria",
+        alliancesPoints: [
+            "Alianzas estratégicas con las principales productoras de la región: DF Entertainment / Live Nation, Pop Art Music, Dale Play y Move Concerts.",
+            "Miembro activo de ACMMA y cofundador de IDEAR. Colaboración permanente en iniciativas destinadas a profesionalizar y fortalecer la industria del entretenimiento en Argentina y Latinoamérica."
+        ],
+        artistsTitle: "ARTISTAS QUE CONFIARON EN MTS",
+        artistsList: [
+            "Airbag",
+            "Los Fabulosos Cadillacs",
+            "Slash",
+            "Ozzy Osbourne",
+            "Megadeth",
+            "No Te Va Gustar",
+            "Ratones Paranoicos"
+        ],
+        artistsFooter: "y muchos otros grandes del rock nacional e internacional..."
+    },
+    en: {
+        title: "ABOUT US",
+        description1: "With nearly 30 years of experience in the entertainment industry, MTS Agency has established itself as one of Argentina's most prominent production and management agencies. Founded in 1998, it drives artists, content, and productions with national and international impact, combining experience, creativity, and innovation in every project.",
+        description2: "Since its inception, MTS has played a leading role in the creation, management, and development of some of the country's most iconic venues: The Roxy (all its locations), Teatro Colegiales (now Teatro Vorterix), Mandarine Park, Estadio Hípico Argentino, Madero Boardwalk, Teatro Flores, Riders Buenos Aires, Superclub, and La Reina. In 2012, the agency actively participated in the launch of Vorterix, alongside renowned Mario Pergolini, collaborating in the creation of the first streaming platform in South America with its own venue. Since then, MTS Agency has been responsible for the direction and general production of Teatro Vorterix in Buenos Aires and Mar del Plata, a pioneering space for comprehensive shows, streaming broadcasts, and the generation of digital and interactive content.",
+        productionTitle: "What We Offer",
+        productionPoints: [
+            {
+                label: "Production and Festivals",
+                detail: "Over **600 shows per year** in own venues and associated venues. Direction and collaboration in notable festivals: Monsters of Rock Argentina (two editions), Gesell Rock, Maximus Buenos Aires (first edition), VTX Reggae Fest, VTX Metal, Alerta Rock!, among others."
+            },
+            {
+                label: "Exclusive Management",
+                detail: "Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (former musicians of Charly García celebrating his work)."
+            },
+            {
+                label: "International Booking",
+                detail: "Ratones Paranoicos – Juanse - Mentes Expertas (Spain) for Argentina only."
+            }
+        ],
+        alliancesTitle: "Industry Participation",
+        alliancesPoints: [
+            "Strategic partnerships with the region's main promoters: DF Entertainment / Live Nation, Pop Art Music, Dale Play and Move Concerts.",
+            "Active member of ACMMA and co-founder of IDEAR. MTS Agency permanently collaborates on initiatives aimed at professionalizing and strengthening the entertainment industry in Argentina and Latin America."
+        ],
+        artistsTitle: "ARTISTS WHO TRUSTED MTS",
+        artistsList: [
+            "Airbag",
+            "Los Fabulosos Cadillacs",
+            "Slash",
+            "Ozzy Osbourne",
+            "Megadeth",
+            "No Te Va Gustar",
+            "Ratones Paranoicos"
+        ],
+        artistsFooter: "and many other great names in national and international rock..."
+    }
+};
 
-    const t = translations[language] || translations.en;
+
+// Componente para mostrar los Puntos de Producción/Management
+const ProductionPoint = ({ title, detail, delay }) => (
+    <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={cardAnimation}
+        transition={{ delay: delay * 0.1 }}
+    >
+        <Box 
+            sx={{
+                border: '1px solid black',
+                padding: '1.5rem',
+                backgroundColor: 'transparent',
+                height: '100%',
+                transition: 'transform 0.3s ease, background-color 0.3s ease',
+                '&:hover': {
+                    transform: 'translateY(-2px)',
+                    // Un color sutil de fondo para el hover (asumiendo que primary.main es un color de marca)
+                    backgroundColor: 'rgba(0, 0, 0, 0.03)', 
+                }
+            }}
+        >
+            <Typography
+                variant="h4"
+                sx={{
+                    color: 'primary.main',
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
+                    textTransform: 'uppercase',
+                    marginBottom: '0.75rem'
+                }}
+            >
+                {title}
+            </Typography>
+            <Typography
+                variant="p"
+                dangerouslySetInnerHTML={{ __html: detail.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+            />
+        </Box>
+    </motion.div>
+);
+
+
+export default function QuienesSomosSection({ language }) {
+    const t = finalTranslations[language] || finalTranslations.en;
 
     return (
         <Box
@@ -105,6 +179,7 @@ export default function QuienesSomosSection({ language }) {
                     zIndex: 2
                 }}
             >
+                {/* Title Animation */}
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -115,104 +190,234 @@ export default function QuienesSomosSection({ language }) {
                         variant="h1"
                         sx={{
                             textAlign: 'left',
-                            color: 'black.main',
+                            color: 'primary.main',
+                            fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
+                            lineHeight: { xs: '1', sm: '1.1', md: '1.2' }
                         }}
                     >
                         {t.title}
                     </Typography>
                 </motion.div>
 
-                {/* Content Card Display */}
                 <Box
                     sx={{
-                        position: 'relative',
-                        overflow: 'hidden',
-                        touchAction: 'pan-y'
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '3rem',
+                        marginTop: { xs: '1.5rem', md: '3rem' }
                     }}
                 >
+                    {/* Bloque 1 y 2: Descripciones Originales (Conservadas) */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                         variants={cardAnimation}
                     >
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '2rem'
-                            }}
-                        >
-                            {/* Text Content - Stacked Vertically */}
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '2rem',
-                                    maxWidth: '800px'
-                                }}
-                            >
-                                {/* First Description */}
-                                <Typography variant="p"
-                                    sx={{
-                                        fontSize: '1.1rem',
-                                        lineHeight: 1.8,
-                                        color: 'black.main'
-                                    }}
-                                >
-                                    {t.description}
-                                </Typography>
-
-                                {/* Second Description */}
-                                <Typography variant="p"
-                                    sx={{
-                                        fontSize: '1.1rem',
-                                        lineHeight: 1.8,
-                                        color: 'black.main'
-                                    }}
-                                >
-                                    {t.secondDescription}
-                                </Typography>
-
-                                {/* Additional structured information (Production, Management, Artists, Participation) */}
-                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-                                    {/* Production and Festivals */}
-                                    <Typography variant="h3" sx={{ fontSize: '1.05rem', fontWeight: '700', color: 'black.main' }}>
-                                        {t.productionTitle}
+                        <Grid container spacing={4} sx={{ alignItems: 'center' }}>
+                            <Grid item xs={12} md={6}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                    <Typography 
+                                        variant="p"
+                                        sx={{
+                                            fontWeight: 400,
+                                            lineHeight: 1.25
+                                        }}
+                                    >
+                                        {t.description1}
                                     </Typography>
-                                    {t.productionPoints.map((p, i) => (
-                                        <Typography key={i} variant="p" sx={{ fontSize: '1.0rem', lineHeight: 1.7, color: 'black.main' }}>
-                                            {p}
-                                        </Typography>
-                                    ))}
-                                    {/* Management and Booking */}
-                                    <Typography variant="h3" sx={{ fontSize: '1.05rem', fontWeight: '700', marginTop: '1rem', color: 'black.main' }}>
-                                        {t.managementTitle}
-                                    </Typography>
-                                    <Typography variant="p" sx={{ fontSize: '1.0rem', lineHeight: 1.7, color: 'black.main' }}>
-                                        {t.managementText}
-                                    </Typography>
-                                    <Typography variant="p" sx={{ fontSize: '1.0rem', lineHeight: 1.7, color: 'black.main' }}>
-                                        {t.bookingText}
-                                    </Typography>
-                                    {/* Artists MTS has worked with */}
-                                    <Typography variant="h3" sx={{ fontSize: '1.05rem', fontWeight: '700', marginTop: '1rem', color: 'black.main' }}>
-                                        {t.artistsTitle}
-                                    </Typography>
-                                    <Typography variant="p" sx={{ fontSize: '1.0rem', lineHeight: 1.7, color: 'black.main' }}>
-                                        {t.artistsText}
-                                    </Typography>
-                                    {/* Industry Participation */}
-                                    <Typography variant="h3" sx={{ fontSize: '1.05rem', fontWeight: '700', marginTop: '1rem', color: 'black.main' }}>
-                                        {t.participationTitle}
-                                    </Typography>
-                                    <Typography variant="p" sx={{ fontSize: '1.0rem', lineHeight: 1.7, color: 'black.main' }}>
-                                        {t.participationText}
+                                    <Typography variant="p">
+                                        {t.description2}
                                     </Typography>
                                 </Box>
-                            </Box>
-                        </Box>
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: { xs: '300px', md: '400px' },
+                                        overflow: 'hidden'
+                                    }}
+                                >
+                                    <Image
+                                        src="/images/1.jpg"
+                                        alt="MTS Agency"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </Box>
+                            </Grid>
+                        </Grid>
                     </motion.div>
+
+                    {/* Bloque 3: Producción, Management y Cifras Clave + Alianzas Estratégicas (Side by Side) */}
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                            <Typography
+                                variant="h2"
+                                sx={{
+                                    color: 'primary.main',
+                                    fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                                    lineHeight: { xs: '1.2', sm: '1.3', md: '1.4' },
+                                    fontWeight: 'bold',
+                                    marginBottom: '1.5rem',
+                                    textTransform: 'uppercase'
+                                }}
+                            >
+                                {t.productionTitle}
+                            </Typography>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                {t.productionPoints.map((point, index) => (
+                                    <ProductionPoint 
+                                        title={point.label} 
+                                        detail={point.detail} 
+                                        delay={index}
+                                        key={index}
+                                    />
+                                ))}
+                            </Box>
+                        </Grid>
+
+                        {/* Bloque 4: Alianzas Estratégicas y Participación en la Industria */}
+                        <Grid item xs={12} md={6}>
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.3 }}
+                                variants={cardAnimation}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        color: 'primary.main',
+                                        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                                        lineHeight: { xs: '1.2', sm: '1.3', md: '1.4' },
+                                        fontWeight: 'bold',
+                                        marginBottom: '1.5rem',
+                                        textTransform: 'uppercase'
+                                    }}
+                                >
+                                    {t.alliancesTitle}
+                                </Typography>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                    {t.alliancesPoints.map((point, i) => (
+                                        <Typography key={i} variant="p">
+                                            {point}
+                                        </Typography>
+                                    ))}
+                                </Box>
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: { xs: '300px', md: '400px' },
+                                        marginTop: '2rem',
+                                        overflow: 'hidden'
+                                    }}
+                                >
+                                    <Image
+                                        src="/images/2.jpg"
+                                        alt="Industry Participation"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </Box>
+                            </motion.div>
+                        </Grid>
+                    </Grid>
+
+                    {/* Bloque 5: Legado de Artistas (Con Mayor Peso Visual) */}
+                    <Box>
+                        <Grid container spacing={{ xs: 2, md: 4 }} sx={{ alignItems: 'flex-start' }}>
+                            <Grid item xs={12} md={4}>
+                                <Typography
+                                    variant="h1"
+                                    sx={{ 
+                                        color: 'primary.main', 
+                                        fontWeight: 'bold', 
+                                        marginBottom: { xs: '0.5rem', md: 0 },
+                                        fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
+                                        lineHeight: { xs: '1', sm: '1.1', md: '1.2' },
+                                        textAlign: { xs: 'center', md: 'left' }
+                                    }}
+                                >
+                                    {t.artistsTitle}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} md={8}>
+                                <motion.div
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    variants={cardAnimation}
+                                    transition={{ delay: 0.5 }}
+                                >
+                                    <Card
+                                        sx={{
+                                            backgroundColor: 'transparent',
+                                            border: 'none',
+                                            borderRadius: 0,
+                                            padding: { xs: 0, md: '1.5rem' },
+                                            boxShadow: 'none'
+                                        }}
+                                    >
+                                        <CardContent>
+                                            <Box
+                                                component="ul"
+                                                sx={{
+                                                    listStyle: 'none',
+                                                    paddingLeft: { xs: 0, md: '1rem' },
+                                                    margin: 0,
+                                                    marginBottom: '1rem',
+                                                    marginLeft: { md: '2rem' },
+                                                    display: 'grid',
+                                                    gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: '1fr' },
+                                                    gap: '0.5rem',
+                                                    borderLeft: { xs: 'none', md: '1px solid black' }
+                                                }}
+                                            >
+                                                {t.artistsList.map((artist, index) => (
+                                                    <Box
+                                                        component="li"
+                                                        key={index}
+                                                        sx={{
+                                                            fontSize: { xs: '2rem', sm: '2.25rem', md: '2.5rem' },
+                                                            lineHeight: 1.2,
+                                                            fontWeight: '900',
+                                                            color: 'black.main',
+                                                            textAlign: index % 2 === 0 ? 'left' : 'right',
+                                                            textTransform: 'uppercase',
+                                                            maxWidth: '300px',
+                                                            marginLeft: index % 2 === 0 ? 0 : 'auto',
+                                                            paddingBottom: { xs: 0, md: '0.5rem' },
+                                                            marginBottom: '0.5rem'
+                                                        }}
+                                                    >
+                                                        {artist}
+                                                    </Box>
+                                                ))}
+                                            </Box>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            </Grid>
+                        </Grid>
+                        <Typography
+                            variant="p"
+                            sx={{
+                                fontWeight: '300',
+                                fontStyle: 'italic',
+                                marginTop: '2rem',
+                                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
+                                textAlign: 'left'
+                            }}
+                        >
+                            {t.artistsFooter}
+                        </Typography>
+                    </Box>
+
                 </Box>
             </Box>
         </Box>

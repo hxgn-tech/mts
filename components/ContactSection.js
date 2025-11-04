@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const titleAnimation = {
     hidden: { opacity: 0, y: 30 },
@@ -367,6 +368,44 @@ export default function ContactSection({ language }) {
                         </motion.div>
                     </Box>
                 </Box>
+            </Box>
+
+            {/* Logo Section - Outside the contact container */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '4rem',
+                    paddingTop: '4rem'
+                }}
+            >
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardAnimation}
+                >
+                    <Box
+                        sx={{
+                            '& img': {
+                                width: 'auto !important',
+                                height: 'auto !important',
+                                maxHeight: { xs: '8rem', sm: '10rem', md: '12rem', lg: '16rem' },
+                                filter: 'invert(1)'
+                            }
+                        }}
+                    >
+                        <Image
+                            src="/images/logo.png"
+                            alt="MTS Agency Logo"
+                            placeholder="empty"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                        />
+                    </Box>
+                </motion.div>
             </Box>
         </Box>
     );

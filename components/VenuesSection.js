@@ -115,12 +115,76 @@ export default function VenuesSection({ venues, language }) {
                         sx={{
                             textAlign: 'left',
                             color: 'primary.main',
+                            fontSize: { xs: '3rem', sm: '4rem', md: '6rem', lg: '8rem' },
+                            lineHeight: { xs: '1', sm: '1.1', md: '1.2' }
                         }}
                     >
                         VENUES
                     </Typography>
                 </motion.div>
 
+                {/* Navigation Controls with Dots Indicator */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        marginTop: '2rem',
+                        marginBottom: '2rem',
+                        width: 'auto'
+                    }}
+                >
+                    <IconButton
+                        onClick={prevVenue}
+                        sx={{
+                            color: 'black.main',
+                            '&:hover': {
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                            }
+                        }}
+                    >
+                        <ChevronLeft fontSize="large" />
+                    </IconButton>
+
+                    {/* Dots Indicator */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: '0.5rem'
+                        }}
+                    >
+                        {venues.map((_, index) => (
+                            <Box
+                                key={index}
+                                onClick={() => goToVenue(index)}
+                                sx={{
+                                    width: '12px',
+                                    height: '12px',
+                                    borderRadius: '50%',
+                                    backgroundColor: index === currentIndex ? 'black' : 'transparent',
+                                    border: '1px solid black',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        backgroundColor: index === currentIndex ? 'black' : 'rgba(0, 0, 0, 0.3)',
+                                    }
+                                }}
+                            />
+                        ))}
+                    </Box>
+
+                    <IconButton
+                        onClick={nextVenue}
+                        sx={{
+                            color: 'black.main',
+                            '&:hover': {
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                            }
+                        }}
+                    >
+                        <ChevronRight fontSize="large" />
+                    </IconButton>
+                </Box>
 
                 {/* Venue Card Display */}
                 <Box
@@ -173,12 +237,20 @@ export default function VenuesSection({ venues, language }) {
                                         }}
                                     >
                                         {/* Venue Name */}
-                                        <Typography variant="p">
+                                        <Typography variant="p"
+                                            sx={{
+                                                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.5rem' }
+                                            }}
+                                        >
                                             {language === 'es' ? venues[currentIndex].nombre : venues[currentIndex].name}
                                         </Typography>
 
                                         {/* Location */}
-                                        <Typography variant="p">
+                                        <Typography variant="p"
+                                            sx={{
+                                                fontSize: { xs: '1rem', sm: '1.25rem', md: '1.25rem' }
+                                            }}
+                                        >
                                             {venues[currentIndex].ubicacion}
                                         </Typography>
                                     </Box>
@@ -187,87 +259,99 @@ export default function VenuesSection({ venues, language }) {
                                     {images.length > 0 && (
                                         <Box
                                             sx={{
-                                                width: { xs: '100%', lg: '1200px' },
-                                                maxWidth: { xs: '100%', lg: '900px' },
-                                                height: { xs: '250px', lg: '400px' },
                                                 position: 'relative',
                                                 flexShrink: 0,
                                                 order: { xs: 1, lg: 2 },
-                                                borderRadius: 1,
-                                                overflow: 'hidden',
-                                                backgroundColor: 'grey.100'
+                                                paddingX: { xs: '48px', lg: '56px' },
+                                                overflow: 'visible'
                                             }}
                                         >
-                                            {/* Image */}
-                                            <Box sx={{ position: 'absolute', inset: 0 }}>
-                                                <Image
-                                                    src={images[imageIndex]}
-                                                    alt={venues[currentIndex].nombre || venues[currentIndex].name}
-                                                    fill
-                                                    style={{
-                                                        objectFit: 'cover'
-                                                    }}
-                                                    onLoadingComplete={() => setLoadingImage(false)}
-                                                    onError={() => setLoadingImage(false)}
-                                                />
+                                            {/* Image Container */}
+                                            <Box
+                                                sx={{
+                                                    width: { xs: '100%', lg: '1200px' },
+                                                    maxWidth: { xs: '100%', lg: '900px' },
+                                                    height: { xs: '250px', lg: '400px' },
+                                                    position: 'relative',
+                                                    overflow: 'hidden',
+                                                    backgroundColor: 'grey.100'
+                                                }}
+                                            >
+                                                {/* Image */}
+                                                <Box sx={{ position: 'absolute', inset: 0 }}>
+                                                    <Image
+                                                        src={images[imageIndex]}
+                                                        alt={venues[currentIndex].nombre || venues[currentIndex].name}
+                                                        fill
+                                                        style={{
+                                                            objectFit: 'cover'
+                                                        }}
+                                                        onLoadingComplete={() => setLoadingImage(false)}
+                                                        onError={() => setLoadingImage(false)}
+                                                    />
+                                                </Box>
+
+                                                {/* Loading overlay while image loads */}
+                                                {loadingImage && (
+                                                    <Box
+                                                        sx={{
+                                                            position: 'absolute',
+                                                            inset: 0,
+                                                            zIndex: 30,
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            justifyContent: 'center',
+                                                            backgroundColor: 'rgba(255,255,255,0.75)'
+                                                        }}
+                                                    >
+                                                        <CircularProgress />
+                                                    </Box>
+                                                )}
                                             </Box>
 
-                                            {/* Loading overlay while image loads */}
-                                            {loadingImage && (
-                                                <Box
-                                                    sx={{
-                                                        position: 'absolute',
-                                                        inset: 0,
-                                                        zIndex: 30,
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'center',
-                                                        backgroundColor: 'rgba(255,255,255,0.75)'
-                                                    }}
-                                                >
-                                                    <CircularProgress />
-                                                </Box>
-                                            )}
-
-                                            {/* Left Arrow */}
+                                            {/* Left Arrow - Outside image container */}
                                             <IconButton
                                                 onClick={prevImage}
                                                 onPointerDown={(e) => e.stopPropagation()}
                                                 sx={{
                                                     position: 'absolute',
                                                     top: '50%',
-                                                    left: 8,
+                                                    left: 0,
                                                     transform: 'translateY(-50%)',
                                                     zIndex: 10,
-                                                    backgroundColor: 'rgba(255,255,255,0.6)',
-                                                    '&:hover': { backgroundColor: 'rgba(255,255,255,0.85)' }
+                                                    color: 'black.main',
+                                                    '&:hover': {
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                                    }
                                                 }}
                                             >
-                                                <ChevronLeft />
+                                                <ChevronLeft fontSize="large" />
                                             </IconButton>
 
-                                            {/* Right Arrow */}
+                                            {/* Right Arrow - Outside image container */}
                                             <IconButton
                                                 onClick={nextImage}
                                                 onPointerDown={(e) => e.stopPropagation()}
                                                 sx={{
                                                     position: 'absolute',
                                                     top: '50%',
-                                                    right: 8,
+                                                    right: 0,
                                                     transform: 'translateY(-50%)',
                                                     zIndex: 10,
-                                                    backgroundColor: 'rgba(255,255,255,0.6)',
-                                                    '&:hover': { backgroundColor: 'rgba(255,255,255,0.85)' }
+                                                    color: 'black.main',
+                                                    '&:hover': {
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                                    }
                                                 }}
                                             >
-                                                <ChevronRight />
+                                                <ChevronRight fontSize="large" />
                                             </IconButton>
 
-                                            {/* Image Dots */}
+                                            {/* Image Dots - Outside image container */}
                                             <Box
                                                 sx={{
                                                     position: 'absolute',
-                                                    bottom: 8,
+                                                    bottom: { xs: -32, lg: -40 },
                                                     left: 0,
                                                     right: 0,
                                                     display: 'flex',
@@ -285,8 +369,8 @@ export default function VenuesSection({ venues, language }) {
                                                             width: 10,
                                                             height: 10,
                                                             borderRadius: '50%',
-                                                            backgroundColor: idx === imageIndex ? 'black' : 'rgba(255,255,255,0.7)',
-                                                            border: idx === imageIndex ? '1px solid white' : '1px solid rgba(0,0,0,0.2)',
+                                                            backgroundColor: idx === imageIndex ? 'black' : 'rgba(0,0,0,0.2)',
+                                                            border: '1px solid rgba(0,0,0,0.3)',
                                                             cursor: 'pointer',
                                                             transition: 'all 0.2s ease'
                                                         }}
@@ -300,75 +384,13 @@ export default function VenuesSection({ venues, language }) {
                                 {/* Bottom - Description */}
                                 <Typography variant="p"
                                 sx={{
-                                    maxWidth: "600px",
+                                    maxWidth: "700px",
                                 }}>
                                     {language === 'es' ? venues[currentIndex].descripcion : venues[currentIndex].description}
                                 </Typography>
                             </Box>
                         </motion.div>
                     </AnimatePresence>
-                </Box>
-
-                {/* Navigation Controls with Dots Indicator */}
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        marginTop: '2rem'
-                    }}
-                >
-                    <IconButton
-                        onClick={prevVenue}
-                        sx={{
-                            color: 'black.main',
-                            '&:hover': {
-                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                            }
-                        }}
-                    >
-                        <ChevronLeft fontSize="large" />
-                    </IconButton>
-
-                    {/* Dots Indicator */}
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            gap: '0.5rem'
-                        }}
-                    >
-                        {venues.map((_, index) => (
-                            <Box
-                                key={index}
-                                onClick={() => goToVenue(index)}
-                                sx={{
-                                    width: '12px',
-                                    height: '12px',
-                                    borderRadius: '50%',
-                                    backgroundColor: index === currentIndex ? 'black' : 'transparent',
-                                    border: '1px solid black',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        backgroundColor: index === currentIndex ? 'black' : 'rgba(0, 0, 0, 0.3)',
-                                    }
-                                }}
-                            />
-                        ))}
-                    </Box>
-
-                    <IconButton
-                        onClick={nextVenue}
-                        sx={{
-                            color: 'black.main',
-                            '&:hover': {
-                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                            }
-                        }}
-                    >
-                        <ChevronRight fontSize="large" />
-                    </IconButton>
                 </Box>
             </Box>
         </Box>
