@@ -33,6 +33,7 @@ export default function VenuesSection({ venues, language }) {
     const [loadingImage, setLoadingImage] = useState(true);
     const dragControls = useDragControls();
     const containerRef = useRef(null);
+    const imageContainerRef = useRef(null);
 
     // cuando cambia la imagen/venue mostramos el loader hasta que onLoadingComplete lo quite
     useEffect(() => {
@@ -86,7 +87,6 @@ export default function VenuesSection({ venues, language }) {
         setImageIndex(idx);
     };
 
-    const imageContainerRef = useRef(null);
     const handleImageDragEnd = (event, info) => {
         const threshold = 50;
         if (info.offset.x > threshold) {
