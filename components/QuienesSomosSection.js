@@ -34,7 +34,7 @@ const finalTranslations = {
             },
             {
                 label: "Management Exclusivo",
-                detail: "Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (ex músicos de Charly García celebrando su obra)."
+                detail: "Catupecu Machu, Beats Modernos, Gustavo Cordera, La Grecia"
             },
             {
                 label: "Booking Internacional",
@@ -70,7 +70,7 @@ const finalTranslations = {
             },
             {
                 label: "Exclusive Management",
-                detail: "Catupecu Machu – Daniela Milagros – Gustavo Cordera – Beats Modernos (former musicians of Charly García celebrating his work)."
+                detail: "Catupecu Machu, Beats Modernos, Gustavo Cordera, La Grecia"
             },
             {
                 label: "International Booking",
