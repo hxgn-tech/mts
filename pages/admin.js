@@ -16,7 +16,7 @@ import {
 } from '../controllers/venues';
 import {
     getManagementItems,
-    AgregarManagementItem,
+    addManagementItem,
     deleteManagementItem,
     updateManagementItem,
     updateManagementOrder
@@ -246,7 +246,7 @@ export default function Admin() {
             : (managementItems.length > 0 ? Math.max(...managementItems.map(item => item.order)) + 1 : 0);
 
         if (!editManagementModalOpen) {
-            const newId = await AgregarManagementItem({
+            const newId = await addManagementItem({
                 nombre: mNombre,
                 descripcion: mDescripcion,
                 description: mDescription,
