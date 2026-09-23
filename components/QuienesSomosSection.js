@@ -34,7 +34,7 @@ const finalTranslations = {
             },
             {
                 label: "Management Exclusivo",
-                detail: "Catupecu Machu, Beats Modernos, Gustavo Cordera, La Grecia, Joaco Burgos"
+                detail: "Catupecu Machu, Gustavo Cordera, La Grecia, Joaco Burgos"
             },
             {
                 label: "Booking Internacional",
@@ -70,7 +70,7 @@ const finalTranslations = {
             },
             {
                 label: "Exclusive Management",
-                detail: "Catupecu Machu, Beats Modernos, Gustavo Cordera, La Grecia, Joaco Burgos"
+                detail: "Catupecu Machu, Gustavo Cordera, La Grecia, Joaco Burgos"
             },
             {
                 label: "International Booking",
