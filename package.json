@@ -21,7 +21,7 @@
     "firebase-tools": "^13.27.0",
     "framer-motion": "^12.6.3",
     "locomotive-scroll": "^4.1.4",
-    "next": "^15.2.2",
+    "next": "15.2.8",
     "nodemailer": "^6.10.0",
     "papaparse": "^5.4.1",
     "react": "18.2.0",
